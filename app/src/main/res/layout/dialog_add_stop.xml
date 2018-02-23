@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:weightSum="1">
+
+    <TextView
+        android:id="@+id/textview_dialog_stop_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="@string/stop_dialog_stop_number"
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        android:textAlignment="center"
+        android:textSize="25sp"/>
+
+    <fragment
+        android:id="@+id/stop_dialog_map"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        class="com.google.android.gms.maps.SupportMapFragment"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.4"
+            android:layout_height="wrap_content"
+            android:text="PLACE PIN"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.2"
+            android:layout_height="wrap_content"
+            android:text="OR"
+            android:textAlignment="center"/>
+
+        <Button
+            android:id="@+id/button_search_map"
+            android:layout_width="0dp"
+            android:layout_weight="0.4"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:text="Search"
+            android:textAlignment="center"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/add_stop_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:contentDescription="line"/>
+
+    <LinearLayout
+        android:id="@+id/stop_dialog_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textview_short_stop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:text="@string/stop_dialog_short_stop"/>
+
+            <android.support.v7.widget.SwitchCompat
+                android:id="@+id/short_stop_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:checked="false"
+                android:textColorLink="@color/colorPrimary"
+                app:theme="@style/ShortStopSwitch"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearlayout_dialog_stop_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textview_dialog_stop_title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="6dp"
+                android:gravity="center_vertical"
+                android:text="@string/stop_dialog_title"
+                android:textColor="@color/colorPrimary"
+                android:textSize="12sp"/>
+
+            <EditText
+                android:id="@+id/editText_dialog_stop_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.38"
+                android:hint="@string/stop_dialog_title_hint"
+                android:inputType="textCapSentences|textMultiLine"
+                android:maxLines="3"
+                android:textColor="@android:color/darker_gray"
+                android:textColorHint="@android:color/darker_gray"
+                android:textSize="12sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearlayout_dialog_stop_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/textview_dialog_stop_address_title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="6dp"
+                android:gravity="center_vertical"
+                android:text="@string/stop_dialog_add_address"
+                android:textColor="@color/colorPrimary"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/textview_stop_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:textColor="@android:color/darker_gray"
+                android:textColorHint="@android:color/darker_gray"
+                android:textSize="12sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearlayout_dialog_stop_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textview_dialog_stop_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/stop_dialog_description"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="12sp"/>
+
+                <TextView
+                    android:id="@+id/textview_long_optional"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:text="@string/newWroute_optional"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="10sp"/>
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/editText_dialog_stop_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/stop_dialog_description_hint"
+                android:inputType="textCapSentences|textMultiLine"
+                android:maxLines="3"
+                android:textColor="@android:color/darker_gray"
+                android:textColorHint="@android:color/darker_gray"
+                android:textSize="12sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearlayout_dialog_stop_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/textview_time_of_day"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/stop_dialog_category"
+                android:textColor="@color/colorPrimary"
+                android:textSize="12sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1.5">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5">
+
+                    <CheckBox
+                        android:id="@+id/checkbox_morning"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@android:color/darker_gray"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="@string/stop_dialog_category_1"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="12sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5">
+
+                    <CheckBox
+                        android:id="@+id/checkbox_afternoon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@android:color/darker_gray"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="@string/stop_dialog_category_2"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="12sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5">
+
+                    <CheckBox
+                        android:id="@+id/checkbox_evening"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@android:color/darker_gray"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="@string/stop_dialog_category_3"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="12sp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <Button
+            android:id="@+id/button_add_stop_cancel"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_weight="0.5"
+            android:background="@android:color/white"
+            android:text="@string/stop_dialog_add_cancel"
+            android:textColor="@color/colorAccent"/>
+
+        <Button
+            android:id="@+id/button_add_stop"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_weight="0.5"
+            android:background="@android:color/white"
+            android:text="@string/stop_dialog_add_stop"
+            android:textColor="@color/colorAccent"/>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

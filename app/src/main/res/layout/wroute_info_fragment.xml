@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+                android:nestedScrollingEnabled="true">
+
+    <LinearLayout
+        android:id="@+id/linearlayout_short_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:layout_marginTop="16dp"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textview_short_description"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/newWroute_short_description"
+                android:textSize="12sp"
+                android:textColor="@color/colorPrimary"/>
+
+            <TextView
+                android:id="@+id/textview_short_character_count"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/newWroute_character_count"
+                android:textSize="10sp"
+                android:textColor="@android:color/darker_gray"
+                android:layout_marginLeft="15dp"/>
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/editText_short_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.38"
+            android:hint="@string/newWroute_short_description_hint_short"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxLength="140"
+            android:maxLines="3"
+            android:textColor="@android:color/darker_gray"
+            android:textColorHint="@android:color/darker_gray"
+            android:textSize="12sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearlayout_long_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/linearlayout_short_description"
+        android:padding="8dp"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textview_long_description"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/newWroute_long_description"
+                android:textSize="12sp"
+                android:textColor="@color/colorPrimary"/>
+
+            <TextView
+                android:id="@+id/textview_long_optional"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/newWroute_optional"
+                android:textSize="10sp"
+                android:textColor="@android:color/darker_gray"
+                android:layout_marginLeft="15dp"/>
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/editText_long_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.38"
+            android:hint="@string/newWroute_long_description_hint_short"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxLines="3"
+            android:textColor="@android:color/darker_gray"
+            android:textColorHint="@android:color/darker_gray"
+            android:textSize="12sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearlayout_time_of_day"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/linearlayout_long_description"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/textview_time_of_day"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/newWroute_time_of_day"
+            android:textSize="12sp"
+            android:textColor="@color/colorPrimary"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1.5">
+
+            <LinearLayout
+                android:layout_weight="0.5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+
+                <CheckBox
+                    android:id="@+id/checkbox_morning"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@android:color/darker_gray"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/darker_gray"
+                    android:text="@string/newWroute_time_of_day_morning"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_weight="0.5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+
+                <CheckBox
+                    android:id="@+id/checkbox_afternoon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@android:color/darker_gray"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/darker_gray"
+                    android:text="@string/newWroute_time_of_day_afternoon"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_weight="0.5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+
+                <CheckBox
+                    android:id="@+id/checkbox_evening"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@android:color/darker_gray"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/darker_gray"
+                    android:text="@string/newWroute_time_of_day_evening"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearlayout_tags"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/linearlayout_time_of_day"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/textview_includes"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/newWroute_includes"
+            android:textSize="12sp"
+            android:textColor="@color/colorPrimary"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1.5">
+
+                <LinearLayout
+                    android:layout_weight="0.5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+                    <CheckBox
+                        android:id="@+id/checkbox_tags_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@android:color/darker_gray"/>
+
+                    <TextView
+                        android:id="@+id/textview_checkbox_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:textSize="12sp"
+                        android:textColor="@android:color/darker_gray"
+                        android:text="@string/newWroute_tag_1"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="0.5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+                    <CheckBox
+                        android:id="@+id/checkbox_tags_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@android:color/darker_gray"/>
+
+                    <TextView
+                        android:id="@+id/textview_checkbox_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:textSize="12sp"
+                        android:textColor="@android:color/darker_gray"
+                        android:text="@string/newWroute_tag_2"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="0.5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+                    <CheckBox
+                        android:id="@+id/checkbox_tags_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@android:color/darker_gray"/>
+
+                    <TextView
+                        android:id="@+id/textview_checkbox_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:textSize="12sp"
+                        android:textColor="@android:color/darker_gray"
+                        android:text="@string/newWroute_tag_3"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1.5">
+
+                <LinearLayout
+                    android:layout_weight="0.5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+                    <CheckBox
+                        android:id="@+id/checkbox_tags_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@android:color/darker_gray"/>
+
+                    <TextView
+                        android:id="@+id/textview_checkbox_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:textSize="12sp"
+                        android:textColor="@android:color/darker_gray"
+                        android:text="@string/newWroute_tag_4"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="0.5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+                    <CheckBox
+                        android:id="@+id/checkbox_tags_5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@android:color/darker_gray"/>
+
+                    <TextView
+                        android:id="@+id/textview_checkbox_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:textSize="12sp"
+                        android:textColor="@android:color/darker_gray"
+                        android:text="@string/newWroute_tag_5"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="0.5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+                    <CheckBox
+                        android:id="@+id/checkbox_tags_6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@android:color/darker_gray"/>
+
+                    <TextView
+                        android:id="@+id/textview_checkbox_6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:textSize="12sp"
+                        android:textColor="@android:color/darker_gray"
+                        android:text="@string/newWroute_tag_6"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_add_button"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@mipmap/ic_add_button"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:alpha="0.6"/>
+
+</RelativeLayout>
