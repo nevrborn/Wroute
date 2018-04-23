@@ -1,68 +1,41 @@
 package com.donkeymonkey.wroute.models
 
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
+import android.graphics.Bitmap
+import com.google.firebase.database.IgnoreExtraProperties
 
-class User// constructor
-private constructor(firebaseUser: FirebaseUser) {
+@IgnoreExtraProperties
+class User {
+    var uid: String? = null
 
-    var name: String?
-        get() = sName
-        set(name) {
-            User.sName = name
-        }
+    var firstName: String? = null
+    var lastName: String? = null
+    var email: String? = null
+    var phone: String? = null
 
-    var email: String?
-        get() = sEmail
-        set(email) {
-            User.sEmail = email
-        }
+    var profileImage: Bitmap? = null
+    var country: String? = null
+    var town: String? = null
 
-    val uid: String
-        get() = sUid
+    var descripton: String? = null
 
+    var wrouteIds: ArrayList<String>? = null
+    var likedWrouteIds: ArrayList<String>? = null
 
-    init {
-        sName = firebaseUser.getDisplayName()
-        sEmail = firebaseUser.getEmail()
-        sUid = firebaseUser.getUid()
-        setIsLoggedIn(true)
+    var following: ArrayList<String>? = null
+    var followers: ArrayList<String>? = null
+
+    constructor() {
+
     }
 
-    private fun setIsLoggedIn(isLoggedIn: Boolean) {
-        val sIsLoggedIn = isLoggedIn
+    constructor(uid: String?, firstName: String?, lastName: String?, profileImage: Bitmap?) {
+        this.uid = uid
+        this.firstName = firstName
+        this.lastName = lastName
+        this.profileImage = profileImage
     }
 
-    companion object {
-
-        // Name, email address, and profile photo Url
-        private var sName: String? = null
-        private var sEmail: String? = null
-
-        // The user's ID, unique to the Firebase project. Do NOT use this value to
-        // authenticate with your backend server, if you have one. Use
-        // FirebaseUser.getToken() instead.
-        private var sUid: String = ""
-
-        private var mUser: User? = null
-
-        fun get(): User? {
-            return mUser
-        }
-
-        fun set() {
-            // if we have a loggedin user, set mUser
-            val firebaseUser = FirebaseAuth.getInstance().getCurrentUser()
-            if (firebaseUser != null) {
-                mUser = User(firebaseUser)
-            }
-        }
-
-        fun signOut() {
-            FirebaseAuth.getInstance().signOut()
-            mUser = null
-        }
-    }
 
 }
+
 

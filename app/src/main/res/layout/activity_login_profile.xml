@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".views.activities.LogInActivity">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable name="activity" type="com.donkeymonkey.wroute.views.activities.LoginProfileActivity" />
+        <variable name="viewModel" type="com.donkeymonkey.wroute.viewmodels.LoginProfileViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/img_login_yellow"
+        android:orientation="vertical">
+
+        <Button
+            android:id ="@+id/push_button"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/shape_circle"
+            android:padding="15dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:textColor="@color/appDarkBlue"
+            android:hint="@string/login_profile_picture_button"
+            android:fontFamily="@font/gotham_medium"
+            />
+
+        <EditText
+            android:id="@+id/edittext_profile_first_name"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:backgroundTint="@color/appRed"
+            android:fontFamily="@font/gotham_medium"
+            android:hint="@string/login_profile_first_name_placeholder"
+            android:inputType="textCapWords|textPersonName"
+            android:text="@={viewModel.firstName}"/>
+
+        <EditText
+            android:id="@+id/edittext_profile_last_name"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/appRed"
+            android:fontFamily="@font/gotham_medium"
+            android:hint="@string/login_profile_last_name_placeholder"
+            android:inputType="textCapWords|textPersonName"
+            android:text="@={viewModel.lastName}"/>
+
+        <Button
+            android:id="@+id/button_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/appDarkBlue"
+            android:onClick="@{() -> activity.nextAction()}"
+            android:text="@string/login_profile_button"
+            android:textColor="@color/appOffWhite"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"/>
+
+    </LinearLayout>
+
+</layout>

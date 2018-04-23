@@ -5,4 +5,12 @@
     <color name="colorPrimaryDark">#0094B8</color>
     <color name="colorPrimaryDarkBlue">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="appRed">#ED6A5A</color>
+    <color name="appOffWhite">#FEFDF5</color>
+    <color name="appGreen">#9BC1BC</color>
+    <color name="appDarkBlue">#5D576B</color>
+    <color name="appGreenLight">#E6EBE0</color>
+    <color name="appGreenShade">#979B8D</color>
+
 </resources>

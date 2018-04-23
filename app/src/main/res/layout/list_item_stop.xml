@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".views.activities.MainActivity">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable name="model" type="com.donkeymonkey.wroute.models.Stop" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+    <TextView
+        android:id="@+id/list_item_stop_number"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.15"
+        android:fontFamily="@font/norwester"
+        android:textSize="40sp"
+        android:textColor="@android:color/white"
+        android:background="@color/appRed"
+        android:gravity="center"
+        tools:text="10"/>
+        
+        <LinearLayout
+            android:id="@+id/list_item_stop_linear_info"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.6"
+            android:orientation="vertical"
+            android:weightSum="1">
+            
+            <TextView
+                android:id="@+id/list_item_stop_name"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:fontFamily="@font/norwester"
+                android:textSize="40sp"
+                android:textColor="@android:color/black"
+                android:gravity="start"
+                android:paddingStart="10dp"
+                tools:text="SKY LOUNGE"/>
+
+            <TextView
+                android:id="@+id/list_item_stop_description"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:fontFamily="@font/amatraca_grotesque_normal"
+                android:textSize="12sp"
+                android:textColor="@android:color/black"
+                android:gravity="start"
+                android:paddingStart="10dp"
+                android:paddingTop="5dp"
+                tools:text="Beautiful view over Amsterdam, Amsterdam Centraal and the IJ. Good cocktails"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/list_item_stop_image"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"/>
+
+    </LinearLayout>
+
+
+
+</layout>

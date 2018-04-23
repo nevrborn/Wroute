@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="110dp"
+    android:background="@color/appRed"
+    android:elevation="4dp"
+    app:contentInsetStart="0dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:id="@+id/toolbar_top"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <ImageView
+                android:id="@+id/toolbar_menu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_menu"
+                android:layout_weight="0.15"
+                android:layout_gravity="start|center"
+                android:padding="12dp"/>
+
+            <TextView
+                android:id="@+id/toolbar_logo"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.8"
+                android:text="@string/app_name"
+                android:layout_marginLeft="15dp"
+                android:textSize="25sp"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/gotham_light"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                />
+
+            <ImageView
+                android:id="@+id/toolbar_add"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.15"
+                android:src="@drawable/ic_add"
+                android:padding="12dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/toolbar_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:background="@color/appOffWhite"
+            android:padding="5dp">
+
+            <ImageView
+                android:id="@+id/toolbar_agenda"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_agenda"
+                android:layout_weight="0.15"
+                android:layout_gravity="start"
+                android:padding="5dp"/>
+
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:background="@color/appGreenLight"
+                android:padding="9dp"
+                android:layout_marginLeft="5dp"/>
+
+            <TextView
+                android:id="@+id/toolbar_city"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.8"
+                android:fontFamily="@font/gotham_bold"
+                android:text="Amsterdam"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="@color/appRed"
+                android:textSize="17sp"
+                />
+
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:background="@color/appGreenLight"
+                android:padding="9dp"
+                android:layout_marginRight="5dp"/>
+
+            <ImageView
+                android:id="@+id/toolbar_filter"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.15"
+                android:src="@drawable/ic_filter"
+                android:padding="9dp"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</android.support.v7.widget.Toolbar>
