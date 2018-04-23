@@ -1,4 +1,4 @@
-package co.woost.napkinnote.helpers
+package com.donkeymonkey.wroute.helpers
 
 import android.graphics.*
 import java.io.File
@@ -6,11 +6,6 @@ import java.io.FileOutputStream
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Environment
-
-
-/**
- * Created by Sebastiaan on 25-11-2017.
- */
 
 object ImageHelper {
     fun resizeImage2(file: File, scaleTo: Int = 1024) {

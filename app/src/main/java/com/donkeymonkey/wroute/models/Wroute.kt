@@ -1,52 +1,61 @@
 package com.donkeymonkey.wroute.models
 
 import android.graphics.Bitmap
+import com.donkeymonkey.wroute.defines.Defines
 import java.io.Serializable
 import java.text.SimpleDateFormat
-import java.util.ArrayList
+import com.google.android.gms.maps.model.PolylineOptions
+import java.util.*
+import kotlin.collections.ArrayList
 
 class Wroute : Serializable, BaseModel {
 
-    var wrouteID: String? = null
-    var userID: String? = null
-    var date: Long = 0
-    var wrouteName: String? = null
-    var wrouteShortDescription: String? = null
-    var wrouteLongDescription: String? = null
-    var wrouteImage: Bitmap? = null
+    var uid: String? = null
+
+    var creatorId: String? = null
+    var createDate: Long? = null
+    var createDateString: String? = null
+        get() = getDate(createDate.let { it } ?: 0)
+    var name: String? = null
+    var description: String? = null
+    //var type: Defines.WrouteType? = null
+    val image: Bitmap? = null
     var category: String? = null
     var polyLine: PolylineOptions? = null
-    var wayPoints = ArrayList<WayPoint>()
-    var distance: Int = 0
-    var duration: Int = 0
-    //private ArrayList<LatLng> mCoordinateList = new ArrayList<>();
+    var stops = ArrayList<Stop>()
+    var distance: Int? = null
+    var duration: Int? = null
+
+    var trips: ArrayList<Trip>? = null
 
     constructor() {
 
     }
 
-    constructor(wrouteID: String, userID: String, wrouteName: String, wrouteDescription: String) {
-        this.wrouteID = wrouteID
-        this.userID = userID
-        this.wrouteName = wrouteName
-        wrouteShortDescription = wrouteDescription
+    constructor(userId: String, name: String, description: String) {
+        this.creatorId = userId
+        this.name = name
+        this.description = description
     }
 
-    fun getDateAndTime(date: Long): String {
-        val tempDate = date * 1000L
-        val dateFormat = SimpleDateFormat("dd-MM-yyyy HH:mm")
-        return dateFormat.format(tempDate)
+    constructor(uid: String?, userId: String?, name: String?, description: String?, type: Defines.WrouteType?, distance: Int?, duration: Int?) : super() {
+        this.uid = uid
+        this.creatorId = userId
+        this.createDate = Date().time
+        this.name = name
+        this.description = description
+        //this.type = type
+        this.distance = distance
+        this.duration = duration
+
+        setDateString()
     }
 
-    //    public ArrayList<LatLng> getCoordinateList() {
-    //        for (int i = 0; i < getWayPoints().size(); i++) {
-    //            mCoordinateList.add(mWayPoints.get(i).getCoordinates());
-    //        }
-    //        return mCoordinateList;
-    //    }
-
-    fun addWayPoint(waypoint: WayPoint) {
-        wayPoints.add(waypoint)
+    fun setDateString() {
+        createDateString = getDate(createDate.let { it } ?: 0)
     }
+
+
+
 }
 

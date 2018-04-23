@@ -1,7 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".views.activities.MainActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <data>
+        <import type="android.view.View"/>
+        <variable name="wroute" type="com.donkeymonkey.wroute.models.Wroute" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/toolbar_main"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="180dp">
+
+            <ImageView
+                android:id="@+id/create_main_wroute_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/black"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:weightSum="1"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/create_main_textview_agenda"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.8"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/norwester"
+                    android:gravity="start|center"
+                    android:text="@{wroute.createDateString}"
+                    tools:text="--"
+                    />
+
+                <ImageView
+                    android:id="@+id/create_main_imageview_type"
+                    android:layout_width="0dp"
+                    android:layout_height="25dp"
+                    android:layout_weight="0.2"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitEnd"
+                    android:layout_gravity="end|center"
+                    tools:src="@drawable/wroute_type_curated"
+                    android:visibility="gone"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/create_main_textview_title"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/norwester"
+                android:textSize="35sp"
+                android:gravity="center"
+                android:layout_centerVertical="true"
+                android:textAlignment="center"
+                android:text="@{wroute.name}"
+                tools:text="TITLE"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:weightSum="1"
+                android:padding="10dp"
+                android:layout_alignParentBottom="true"
+                >
+
+                <TextView
+                    android:id="@+id/create_main_textview_kilometer"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.33"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/norwester"
+                    android:gravity="start|center"
+                    tools:text="-- KM"
+                    />
+
+                <TextView
+                    android:id="@+id/create_main_textview_stops"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.33"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/norwester"
+                    tools:text="-- STOPS"
+                    />
+
+                <TextView
+                    android:id="@+id/create_main_textview_hours"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.33"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/norwester"
+                    android:gravity="end|center"
+                    tools:text="-- HRS"
+                    />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Description"
+                android:fontFamily="@font/amatraca_grotesque_normal"
+                android:textColor="@color/appRed"/>
+
+            <EditText
+            android:layout_width="match_parent"
+            android:layout_height="100dp"/>
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</layout>

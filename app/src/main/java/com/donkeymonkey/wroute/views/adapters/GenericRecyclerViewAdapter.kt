@@ -1,4 +1,4 @@
-package co.woost.napkinnote.views.adapters
+package com.donkeymonkey.wroute.views.adapters
 
 import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
@@ -6,7 +6,8 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import co.woost.napkinnote.BR
+
+
 
 /**
  * Created by Sebastiaan on 21-11-2017.
@@ -60,12 +61,12 @@ class GenericRecyclerViewAdapter<T>(
     override fun getItemCount() = this.items.size
 
     inner class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-        val binding: ViewDataBinding = DataBindingUtil.bind(view)
+        val binding: ViewDataBinding = DataBindingUtil.bind(view)!!
         var item: T? = null
 
         fun bindItem(item: T) {
             this.item = item
-            binding.setVariable(BR.model, this.item)
+            //binding.setVariable(BR.model, this.item) TODO!!!!!!!!!!
             binding.executePendingBindings()
         }
     }

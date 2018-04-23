@@ -9,8 +9,8 @@ import android.widget.EditText
 import android.widget.Toast
 import com.donkeymonkey.wroute.R
 import com.donkeymonkey.wroute.databinding.ActivityLoginBinding
-import com.donkeymonkey.wroute.helpers.InteractionHelper
-import com.donkeymonkey.wroute.viewmodels.LogInViewModel
+import com.donkeymonkey.wroute.helpers.*
+import com.donkeymonkey.wroute.viewmodels.LoginViewModel
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.ErrorCodes
 import com.firebase.ui.auth.IdpResponse
@@ -20,8 +20,8 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import java.util.*
 
-class LogInActicity : BaseActivity() {
-    lateinit var viewModel: LogInViewModel
+class LoginActivity : BaseActivity() {
+    lateinit var viewModel: LoginViewModel
     lateinit var binding: ActivityLoginBinding
 
     private var userEmailEditText: EditText? = null
@@ -29,46 +29,35 @@ class LogInActicity : BaseActivity() {
 
     val RC_SIGN_IN = 1
 
-    //Firebase references
-    private var mDatabaseReference: DatabaseReference? = null
-    private var mDatabase: FirebaseDatabase? = null
-    private var mAuth: FirebaseAuth? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewModel = ViewModelProviders.of(this).get(LogInViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
         binding.activity = this
         binding.viewModel = viewModel
 
-        initialise()
-
+        firebaseAuthHelper.initialiseFirebase(this)
+        prefsHelper.currentCityId = "Amsterdam"
+        firebaseDBHelper.updateRefs(prefsHelper.currentCityId)
     }
 
-    private fun initialise() {
+    fun nextAction() {
 
-        FirebaseApp.initializeApp(this)
-        mDatabase = FirebaseDatabase.getInstance()
-        mDatabaseReference = mDatabase!!.reference!!.child("Users")
-        mAuth = FirebaseAuth.getInstance()
+        val isUserSignedIn = firebaseAuthHelper.mAuth?.currentUser != null
 
-
+        if (!isUserSignedIn) {
+            login()
+        } else {
+            prefsHelper.userId = firebaseAuthHelper.mAuth?.currentUser?.uid.let { it } ?: ""
+            navigationHelper.openMainActivity()
+        }
     }
-
-    fun loginAction() {
-
-        val isUserSignedIn = FirebaseAuth.getInstance().currentUser != null
-
-        if (!isUserSignedIn) login()
-    }
-
 
     private fun login() {
         val params = Bundle()
-        params.putString(AuthUI.EXTRA_DEFAULT_COUNTRY_CODE, "ng")
-        params.putString(AuthUI.EXTRA_DEFAULT_NATIONAL_NUMBER, "23456789")
+        params.putString(AuthUI.EXTRA_DEFAULT_COUNTRY_CODE, "nl")
 
         val phoneConfigWithDefaultNumber = AuthUI.IdpConfig.Builder(AuthUI.PHONE_VERIFICATION_PROVIDER)
                 .setParams(params)
@@ -91,34 +80,33 @@ class LogInActicity : BaseActivity() {
             when {
                 resultCode == Activity.RESULT_OK -> {
                     // Successfully signed in
-                    Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
+                    interactionHelper.toast("Login successful")
+                    navigationHelper.openLoginProfile()
                     return
                 }
                 response == null -> {
                     // Sign in failed
                     // User pressed back button
-                    Toast.makeText(this, "Sign in cancelled", Toast.LENGTH_SHORT).show()
+                    interactionHelper.toast("Sign in cancelled")
                     return
                 }
                 response.errorCode == ErrorCodes.NO_NETWORK -> {
                     // Sign in failed
                     //No Internet Connection
-                    Toast.makeText(this, "No Internet connection", Toast.LENGTH_SHORT).show()
+                    interactionHelper.toast("No Internet connection")
                     return
                 }
                 response.errorCode == ErrorCodes.UNKNOWN_ERROR -> {
                     // Sign in failed
                     //Unknown Error
-                    Toast.makeText(this, "Unknown error", Toast.LENGTH_SHORT).show()
+                    interactionHelper.toast("Unknown error")
                     return
                 }
                 else -> {
-                    Toast.makeText(this, "Unknown Response", Toast.LENGTH_SHORT).show()
+                    interactionHelper.toast("Unknown Response")
                 }
             }
         }
     }
-
-
 
 }

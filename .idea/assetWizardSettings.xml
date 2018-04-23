@@ -18,8 +18,8 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="backgroundImage" value="$USER_HOME$/Desktop/Wroute Design/res/mipmap/hdpi/ic_background.png" />
-                                      <entry key="foregroundImage" value="$USER_HOME$/Desktop/Wroute Design/res/mipmap/hdpi/ic_foreground.png" />
+                                      <entry key="backgroundImage" value="$USER_HOME$/Desktop/Wroute Design/res/mipmap/xxxhdpi/ic_background.png" />
+                                      <entry key="foregroundImage" value="$USER_HOME$/Desktop/Wroute Design/res/mipmap/xxxhdpi/ic_foreground.png" />
                                     </map>
                                   </option>
                                 </PersistentState>

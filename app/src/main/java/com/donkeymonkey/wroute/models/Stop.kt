@@ -6,7 +6,7 @@ import android.location.Location
 import com.google.android.gms.maps.model.LatLng
 
 
-class WayPoint : Serializable, BaseModel {
+class Stop {
 
     var name: String? = null
     var address: String? = null
@@ -15,6 +15,10 @@ class WayPoint : Serializable, BaseModel {
     var image: Bitmap? = null
     var shortStop: Boolean? = null
 
+    constructor() {
+
+    }
+
     constructor(name: String, address: String, description: String, coordinates: LatLng, isShortStop: Boolean?) {
         this.name = name
         this.address = address
@@ -22,8 +26,6 @@ class WayPoint : Serializable, BaseModel {
         this.coordinates = coordinates
         shortStop = isShortStop
     }
-
-    constructor() {}
 
     constructor(address: String, coordinates: LatLng, isShortStop: Boolean?) {
         this.address = address
