@@ -1,0 +1,58 @@
+{
+  "project_info": {
+    "project_number": "188631133181",
+    "firebase_url": "https://wroute-47996.firebaseio.com",
+    "project_id": "wroute-47996",
+    "storage_bucket": "wroute-47996.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:188631133181:android:5ba130926eb32f02",
+        "android_client_info": {
+          "package_name": "com.donkeymonkey.wroutes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "188631133181-socslhilvtma6ehj4memsnn66o1jbeb3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.donkeymonkey.wroutes",
+            "certificate_hash": "beedc99dd4fc8b3e09679b778e5d9b2656f7af80"
+          }
+        },
+        {
+          "client_id": "188631133181-dhpufo8cu48e0vnq1fdd4t7fjh3a435c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcmwoAqmYUXbrbMyz7EmX_G1JYujSbgoA"
+        },
+        {
+          "current_key": "AIzaSyBlf5_rlmvGEUWH5Gx80jgnOZCxF_IPc0s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "188631133181-dhpufo8cu48e0vnq1fdd4t7fjh3a435c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".views.activities.MainActivity">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable name="wroute" type="com.donkeymonkey.wroute.models.Wroute" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp">
+
+        <ImageView
+            android:id="@+id/list_item_wroute_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/black"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/list_item_wroute_textview_agenda"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.8"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                android:fontFamily="@font/norwester"
+                android:gravity="start|center"
+                android:text="@{wroute.createDateString}"
+                tools:text="TODAY 12.00"
+                />
+
+            <ImageView
+                android:id="@+id/list_item_wroute_imageview_type"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_weight="0.2"
+                android:adjustViewBounds="true"
+                android:scaleType="fitEnd"
+                android:layout_gravity="end|center"
+                tools:src="@drawable/wroute_type_curated"
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/list_item_wroute_textview_title"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textColor="@android:color/white"
+            android:fontFamily="@font/norwester"
+            android:textSize="35sp"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:textAlignment="center"
+            android:text="@{wroute.name}"
+            tools:text="WITH A VIEW"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            android:padding="10dp"
+            android:layout_alignParentBottom="true"
+            >
+
+            <TextView
+                android:id="@+id/list_item_wroute_textview_kilometer"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                android:fontFamily="@font/norwester"
+                android:gravity="start|center"
+                tools:text="10 KM"
+                />
+
+            <TextView
+                android:id="@+id/list_item_wroute_textview_stops"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                android:fontFamily="@font/norwester"
+                android:gravity="center"
+                tools:text="12 STOPS"
+                />
+
+            <TextView
+                android:id="@+id/list_item_wroute_textview_hours"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                android:fontFamily="@font/norwester"
+                android:gravity="end|center"
+                tools:text="6 HRS"
+                />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</layout>

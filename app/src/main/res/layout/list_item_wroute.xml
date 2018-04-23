@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".views.activities.MainActivity">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable name="model" type="com.donkeymonkey.wroute.models.Wroute" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp">
+
+        <ImageView
+            android:id="@+id/list_item_wroute_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/black"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.8"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                android:fontFamily="@font/norwester"
+                android:gravity="left|center"
+                android:text="@{model.date}"
+                tools:text="TODAY 12.00"
+                />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_weight="0.2"
+                android:adjustViewBounds="true"
+                android:scaleType="fitEnd"
+                android:layout_gravity="right|center"
+                tools:src="@drawable/wroute_type_curated"
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textColor="@android:color/white"
+            android:fontFamily="@font/norwester"
+            android:textSize="40sp"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:text="@{model.name}"
+            tools:text="WITH A VIEW"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            android:padding="10dp"
+            android:layout_alignParentBottom="true"
+            >
+
+            <TextView
+                android:id="@+id/listitem_wroute_kilometer"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                android:fontFamily="@font/norwester"
+                android:gravity="left|center"
+                android:text="@{model.distance}"
+                tools:text="10 KM"
+                />
+
+            <TextView
+                android:id="@+id/listitem_wroute_stops"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                android:fontFamily="@font/norwester"
+                android:gravity="center"
+                android:text="@{model.wayPoints}"
+                tools:text="12 STOPS"
+                />
+
+            <TextView
+                android:id="@+id/listitem_wroute_hours"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                android:fontFamily="@font/norwester"
+                android:gravity="right|center"
+                android:text="@{model.duration}"
+                tools:text="6 HRS"
+                />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</layout>
