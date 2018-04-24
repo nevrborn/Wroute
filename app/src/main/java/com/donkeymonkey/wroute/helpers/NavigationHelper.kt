@@ -1,5 +1,6 @@
 package com.donkeymonkey.wroute.helpers
 
+import android.app.Activity
 import android.content.Intent
 import com.donkeymonkey.wroute.views.activities.BaseActivity
 import com.donkeymonkey.wroute.views.activities.LoginActivity
@@ -7,7 +8,7 @@ import com.donkeymonkey.wroute.views.activities.LoginProfileActivity
 import com.donkeymonkey.wroute.views.activities.MainActivity
 import com.donkeymonkey.wroute.views.fragments.BaseFragment
 
-class NavigationHelper(private val activity: BaseActivity) {
+class NavigationHelper(private val activity: Activity) {
     fun openMainActivity() = navigate(MainActivity::class.java, true)
     fun openLogin() = navigate(LoginActivity::class.java, true)
     fun openLoginProfile() = navigate(LoginProfileActivity::class.java, true)

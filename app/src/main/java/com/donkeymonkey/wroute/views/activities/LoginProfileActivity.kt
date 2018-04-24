@@ -3,8 +3,10 @@ package com.donkeymonkey.wroute.views.activities
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import com.donkeymonkey.wroute.R
 import com.donkeymonkey.wroute.databinding.ActivityLoginProfileBinding
+import com.donkeymonkey.wroute.helpers.*
 import com.donkeymonkey.wroute.models.User
 import com.donkeymonkey.wroute.viewmodels.LoginProfileViewModel
 import io.reactivex.functions.Action

@@ -73,7 +73,6 @@
                 android:textAlignment="textStart"
                 android:layout_marginStart="20dp"
                 android:text="@{wroute.name}"
-                tools:text="WITH A VIEW"
                 android:fontFamily="@font/gotham_light"
                 />
 
@@ -98,7 +97,7 @@
                 android:textSize="20sp"
                 android:fontFamily="@font/gotham_light"
                 android:gravity="start|center"
-                tools:text="10 KM"
+                android:text="10 KM"
                 />
 
             <TextView
