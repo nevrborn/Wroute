@@ -11,8 +11,9 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:background="@color/appOffWhite"
-        android:padding="10dp">
+        android:background="@drawable/border_shadow"
+        android:padding="10dp"
+        android:layout_marginBottom="25dp">
 
         <ImageView
             android:id="@+id/list_item_wroute_image"
@@ -31,13 +32,11 @@
             android:src="@color/appGreenShade"
             android:alpha="0.8"
             />
-
-
+        
         <ImageView
             android:id="@+id/list_item_wroute_imageview_type"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_weight="0.2"
             android:adjustViewBounds="true"
             android:scaleType="fitEnd"
             android:layout_alignParentTop="true"
