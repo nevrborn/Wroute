@@ -3,7 +3,6 @@ package com.donkeymonkey.wroute.views.activities
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
 import com.donkeymonkey.wroute.R
 import com.donkeymonkey.wroute.databinding.ActivityMainBinding
 import com.donkeymonkey.wroute.models.City
@@ -12,12 +11,8 @@ import com.donkeymonkey.wroute.models.Wroute
 import com.donkeymonkey.wroute.viewmodels.MainViewModel
 import com.donkeymonkey.wroute.views.adapters.GenericRecyclerViewAdapter
 import io.reactivex.Observable
-import android.support.v7.widget.RecyclerView
-
-
 
 class MainActivity : BaseActivity() {
-
     lateinit var viewModel: MainViewModel
     lateinit var binding: ActivityMainBinding
 
@@ -32,7 +27,7 @@ class MainActivity : BaseActivity() {
         binding.activity = this
         binding.viewModel = viewModel
 
-        setSupportActionBar(findViewById(R.id.toolbar))
+        configureToolBar(binding.root)
 
         firebaseDBHelper.updateRefs(prefsHelper.currentCityId)
 
@@ -93,5 +88,4 @@ class MainActivity : BaseActivity() {
             }
         }
     }
-
 }
