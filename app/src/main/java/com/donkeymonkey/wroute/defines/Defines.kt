@@ -17,8 +17,7 @@ class Defines {
     enum class WrouteType {
         Curated,
         Campaign,
-        User,
-        Popular
+        User
     }
 
     enum class Transport(val mode: String) {
@@ -26,6 +25,25 @@ class Defines {
         Bicyle("Bicycling"),
         Driving("Driving"),
         Transit("Transit")
+    }
+
+    /* FILTER ENUMS */
+
+    enum class FilterType {
+        All,
+        Curated,
+        Hot,
+        UserMade,
+        FriendMade
+    }
+
+    enum class FilterSort {
+        NoSort,
+        HighRated,
+        Created,
+        ShortestTime,
+        LongestTime,
+        Closest
     }
 
     /* STOP ENUMS */

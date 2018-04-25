@@ -60,28 +60,26 @@
 
         <ImageView
             style="@style/ImageView.GuillotineItem"
-            android:src="@drawable/ic_agenda" />
+            android:src="@mipmap/ic_profile" />
 
         <com.donkeymonkey.wroute.views.widget.CanaroTextView
             style="@style/TextView.GuillotineItem"
-            android:text="Profile" />
+            android:text="Profile"
+            android:textAllCaps="true"/>
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/guillotine_divider_height" />
-
     <LinearLayout
-        android:id="@+id/feed_group"
+        android:id="@+id/trips_group"
         style="@style/LinearLayout.GuillotineItem">
 
         <ImageView
             style="@style/ImageView.GuillotineItem"
-            android:src="@drawable/ic_agenda" />
+            android:src="@mipmap/ic_agenda_white" />
 
         <com.donkeymonkey.wroute.views.widget.CanaroTextView
             style="@style/TextView.GuillotineItem"
-            android:text="About Wroute" />
+            android:text="Planned trips"
+            android:textAllCaps="true"/>
     </LinearLayout>
 
     <View
@@ -94,14 +92,31 @@
 
         <ImageView
             style="@style/ImageView.GuillotineItem"
-            android:src="@drawable/ic_agenda" />
+            android:src="@mipmap/ic_settings" />
 
         <com.donkeymonkey.wroute.views.widget.CanaroTextView
             style="@style/TextView.GuillotineItem"
-            android:text="Settings" />
+            android:text="Settings"
+            android:textAllCaps="true"/>
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/guillotine_divider_height" />
 
+    <LinearLayout
+        android:id="@+id/feed_group"
+        style="@style/LinearLayout.GuillotineItem">
+
+        <ImageView
+            style="@style/ImageView.GuillotineItem"
+            android:src="@mipmap/ic_about"/>
+
+        <com.donkeymonkey.wroute.views.widget.CanaroTextView
+            style="@style/TextView.GuillotineItem"
+            android:text="About Wroute"
+            android:textAllCaps="true"/>
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/settings_group"
@@ -109,11 +124,12 @@
 
         <ImageView
             style="@style/ImageView.GuillotineItem"
-            android:src="@drawable/ic_agenda" />
+            android:src="@mipmap/ic_logout" />
 
         <com.donkeymonkey.wroute.views.widget.CanaroTextView
             style="@style/TextView.GuillotineItem"
-            android:text="Log out" />
+            android:text="Log out"
+            android:textAllCaps="true"/>
     </LinearLayout>
 
     </LinearLayout>

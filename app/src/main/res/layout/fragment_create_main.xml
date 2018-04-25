@@ -108,7 +108,7 @@
                     android:textSize="20sp"
                     android:fontFamily="@font/gotham_light"
                     android:gravity="center"
-                    android:text="10 STOPS"
+                    android:text="@{viewModel.wroute.stops.size != 0 ? @string/common_stops(wroute.stops.size): @string/common_stops_placeholder}"
                     />
 
                 <TextView
@@ -130,8 +130,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.6"
-            android:layout_margin="15dp">
+            android:layout_weight="0.6">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -146,7 +145,8 @@
                     android:text="@string/newWroute_long_description"
                     android:fontFamily="@font/gotham_light"
                     android:textColor="@color/appRed"
-                    android:layout_marginBottom="5dp"/>
+                    android:layout_marginBottom="5dp"
+                    android:textSize="20sp"/>
 
                 <EditText
                     android:id="@+id/editText_description"
@@ -164,7 +164,8 @@
                     android:text="@string/newWroute_transport_mode"
                     android:fontFamily="@font/gotham_light"
                     android:textColor="@color/appRed"
-                    android:layout_marginBottom="5dp"/>
+                    android:layout_marginBottom="5dp"
+                    android:textSize="20sp"/>
 
                 <Spinner
                     android:id="@+id/spinner_transport_mode"
