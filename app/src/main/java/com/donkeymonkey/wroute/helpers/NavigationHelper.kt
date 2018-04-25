@@ -10,7 +10,6 @@ class NavigationHelper(private val activity: Activity) {
     fun openLogin() = navigate(LoginActivity::class.java, true)
     fun openLoginProfile() = navigate(LoginProfileActivity::class.java, true)
     fun openCreateWroute() = navigate(CreateWrouteActivity::class.java, false)
-    fun openAgenda() = navigate(AgendaActivity::class.java, false)
 
     fun navigate(destination: Class<*>, clearTop: Boolean) {
         val intent = Intent(activity, destination)

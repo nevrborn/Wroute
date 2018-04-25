@@ -4,12 +4,11 @@ import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v4.view.ViewPager
-import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.donkeymonkey.wroute.R
 import com.donkeymonkey.wroute.databinding.ActivityCreateWrouteBinding
 import com.donkeymonkey.wroute.viewmodels.CreateWrouteViewModel
-import com.donkeymonkey.wroute.views.adapters.CreateWrouteViewPageAdapter
+import com.donkeymonkey.wroute.views.adapters.ViewPageAdapter
 import com.donkeymonkey.wroute.views.dialogs.StopDialog
 import com.donkeymonkey.wroute.views.fragments.CreateWrouteMainFragment
 import com.donkeymonkey.wroute.views.fragments.CreateWrouteMapFragment
@@ -21,7 +20,7 @@ class CreateWrouteActivity : BaseActivity() {
 
     var currentPage: Int = 0
 
-    private lateinit var pagerAdapter: CreateWrouteViewPageAdapter
+    private lateinit var pagerAdapter: ViewPageAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +33,7 @@ class CreateWrouteActivity : BaseActivity() {
 
         configureLightToolbar(binding.root)
 
-        pagerAdapter = CreateWrouteViewPageAdapter(supportFragmentManager)
+        pagerAdapter = ViewPageAdapter(supportFragmentManager)
 
         pagerAdapter.addFragment(0, CreateWrouteMainFragment().newInstance())
         pagerAdapter.addFragment(1, CreateWrouteStopFragment().newInstance())
@@ -62,9 +61,10 @@ class CreateWrouteActivity : BaseActivity() {
 
         if (isNext && currentPage < 2) {
             currentPage += 1
-
+            binding.pager.currentItem = currentPage
         } else {
             currentPage -= 1
+            binding.pager.currentItem = currentPage
         }
 
         binding.pager.currentItem = currentPage

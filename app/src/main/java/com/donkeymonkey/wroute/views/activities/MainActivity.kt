@@ -1,22 +1,30 @@
 package com.donkeymonkey.wroute.views.activities
 
+import `in`.galaxyofandroid.spinerdialog.SpinnerDialog
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.os.Bundle
+import android.support.v4.view.ViewPager
 import com.donkeymonkey.wroute.R
 import com.donkeymonkey.wroute.databinding.ActivityMainBinding
-import com.donkeymonkey.wroute.models.City
-import com.donkeymonkey.wroute.models.User
-import com.donkeymonkey.wroute.models.Wroute
 import com.donkeymonkey.wroute.viewmodels.MainViewModel
-import com.donkeymonkey.wroute.views.adapters.GenericRecyclerViewAdapter
-import io.reactivex.Observable
+import com.donkeymonkey.wroute.views.adapters.ViewPageAdapter
+import com.donkeymonkey.wroute.views.fragments.*
+import kotlinx.android.synthetic.main.activity_main.view.*
+import android.databinding.adapters.TextViewBindingAdapter.setText
+import android.widget.Toast
+import `in`.galaxyofandroid.spinerdialog.OnSpinerItemClick
+
+
 
 class MainActivity : BaseActivity() {
     lateinit var viewModel: MainViewModel
     lateinit var binding: ActivityMainBinding
 
-    var user: User = User()
+    var currentPage: Int = 0
+
+    private lateinit var mainPageAdapter: ViewPageAdapter
+    private lateinit var citySpinnerDialog: SpinnerDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,63 +37,60 @@ class MainActivity : BaseActivity() {
 
         configureToolBar(binding.root)
 
-        firebaseDBHelper.updateRefs(prefsHelper.currentCityId)
+        setupCitySpinner()
+        setupViewPager()
 
-        sendDummyWroutes()
-
-        setupAgendaCarousel()
-        setupRoutesTable()
+        binding.pager.currentItem = 1
 
     }
 
-    fun sendDummyWroutes() {
-        firebaseDBHelper.storeCity(City("Amsterdam", "The Netherlands", "Blabla")).subscribe()
-        firebaseDBHelper.storeWroute(viewModel.wroute1).subscribe()
-        firebaseDBHelper.storeWroute(viewModel.wroute2).subscribe()
-    }
+    private fun setupCitySpinner() {
 
-    fun setupAgendaCarousel() {
-        val agendaAdapter = GenericRecyclerViewAdapter<Wroute>(R.layout.list_item_wroute_agenda, object: GenericRecyclerViewAdapter.InteractionListener<Wroute> {
-            override fun onItemSelected(item: Wroute?) {
+        citySpinnerDialog = SpinnerDialog(this, viewModel.items, "Select or Search City", R.style.DialogAnimations_SmileWindow, "Close")
 
-            }
+        citySpinnerDialog.bindOnSpinerListener(OnSpinerItemClick { item, position ->
+            Toast.makeText(this, "$item  $position", Toast.LENGTH_SHORT).show()
         })
+    }
 
-        binding.mainListWroutesAgenda.adapter = agendaAdapter
+    private fun setupViewPager() {
 
-        firebaseDBHelper.getMeProfileFromFirebase().subscribe { user ->
-            this.user = user
-            firebaseDBHelper.getCityWroutes(prefsHelper.currentCityId).subscribe { wroutes ->
-                viewModel.wroutes = Observable.just(wroutes)
+        mainPageAdapter = ViewPageAdapter(supportFragmentManager)
 
-                viewModel.wroutes?.subscribe( { it ->
-                    agendaAdapter.replaceItems(it!!)
-                    agendaAdapter.notifyDataSetChanged()
-                })
+        mainPageAdapter.addFragment(0, AgendaFragment().newInstance())
+        mainPageAdapter.addFragment(1, MainFragment().newInstance())
+        mainPageAdapter.addFragment(2, FilterFragment().newInstance())
+
+        binding.pager.adapter = mainPageAdapter
+
+        actionBarAgenda?.setOnClickListener {
+            binding.pager.currentItem = 0
+        }
+
+        actionBarCity?.setOnClickListener {
+            if (binding.pager.currentItem != 1) {
+                binding.pager.currentItem = 1
+            } else {
+                citySpinnerDialog.showSpinerDialog();
             }
         }
 
-    }
+        actionBarFilter?.setOnClickListener {
+            binding.pager.currentItem = 2
+        }
 
-    fun setupRoutesTable() {
-        val wrouteAdapter = GenericRecyclerViewAdapter<Wroute>(R.layout.list_item_wroute, object: GenericRecyclerViewAdapter.InteractionListener<Wroute> {
-            override fun onItemSelected(item: Wroute?) {
+        binding.pager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
 
+            override fun onPageScrollStateChanged(state: Int) {
+            }
+
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+
+            }
+
+            override fun onPageSelected(position: Int) {
             }
         })
-
-        binding.mainListWroutes.adapter = wrouteAdapter
-
-        firebaseDBHelper.getMeProfileFromFirebase().subscribe { user ->
-            this.user = user
-            firebaseDBHelper.getCityWroutes(prefsHelper.currentCityId).subscribe { wroutes ->
-                viewModel.wroutes = Observable.just(wroutes)
-
-                viewModel.wroutes?.subscribe( { it ->
-                    wrouteAdapter.replaceItems(it!!)
-                    wrouteAdapter.notifyDataSetChanged()
-                })
-            }
-        }
     }
+
 }

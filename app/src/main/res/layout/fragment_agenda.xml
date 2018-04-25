@@ -2,12 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        tools:context=".views.activities.AgendaActivity">
+        tools:context=".views.activities.MainActivity">
 
     <data>
         <import type="android.view.View"/>
-        <variable name="activity" type="com.donkeymonkey.wroute.views.activities.AgendaActivity" />
-        <variable name="viewModel" type="com.donkeymonkey.wroute.viewmodels.AgendaViewModel" />
+        <variable name="fragment" type="com.donkeymonkey.wroute.views.fragments.AgendaFragment" />
+        <variable name="viewModel" type="com.donkeymonkey.wroute.viewmodels.MainViewModel" />
     </data>
 
     <FrameLayout
@@ -29,14 +29,13 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <include layout="@layout/toolbar_main"/>
-
             <devs.mulham.horizontalcalendar.HorizontalCalendarView
                 android:id="@+id/calendarView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/appGreenShade"
-                app:textColorSelected="@color/appOffWhite"/>
+                app:textColorSelected="@color/appOffWhite"
+                app:selectorColor="@color/appRed"/>
 
             <ScrollView
                 android:layout_width="match_parent"
@@ -47,6 +46,16 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/agenda_no_trips"
+                        android:padding="10dp"
+                        android:textSize="20sp"
+                        android:textColor="@color/appDarkBlue"
+                        android:textAllCaps="true"
+                        android:fontFamily="@font/gotham_bold"/>
 
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/main_list_wroutes"

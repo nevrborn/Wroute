@@ -10,7 +10,7 @@ import com.donkeymonkey.wroute.views.fragments.CreateWrouteMapFragment
 import com.donkeymonkey.wroute.views.fragments.CreateWrouteStopFragment
 
 
-class CreateWrouteViewPageAdapter(fragmentManager: FragmentManager) : FragmentStatePagerAdapter(fragmentManager) {
+class ViewPageAdapter(fragmentManager: FragmentManager) : FragmentStatePagerAdapter(fragmentManager) {
 
     override fun getItem(position: Int): Fragment? {
 

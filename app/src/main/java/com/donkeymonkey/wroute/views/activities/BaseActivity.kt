@@ -19,6 +19,12 @@ abstract class BaseActivity : AppCompatActivity() {
     val firebaseDBHelper = FireBaseDBHelper(this)
     val prefsHelper = PrefsHelper(this)
 
+    var actionBarMenu: View? = null
+    var actionBarAdd: View? = null
+    var actionBarAgenda: View? = null
+    var actionBarCity: View? = null
+    var actionBarFilter: View? = null
+
 
     fun configureToolBar(view: View) {
         var toolbar = view.findViewById<Toolbar>(R.id.toolbar)
@@ -29,8 +35,7 @@ abstract class BaseActivity : AppCompatActivity() {
         root.addView(guillotineMenu)
 
         if (toolbar != null) {
-            setSupportActionBar(toolbar);
-            supportActionBar!!.setDisplayHomeAsUpEnabled(true);
+            setSupportActionBar(toolbar)
 
             val actionbarLayout = layoutInflater.inflate(R.layout.toolbar_main, null)
             supportActionBar!!.setCustomView(actionbarLayout)
@@ -39,30 +44,17 @@ abstract class BaseActivity : AppCompatActivity() {
             supportActionBar!!.setDisplayShowTitleEnabled(false)
             supportActionBar!!.setDisplayShowCustomEnabled(true)
 
-            val actionBarMenu = findViewById<ImageView>(R.id.toolbar_menu)
-            val actionBarAdd = findViewById<ImageView>(R.id.toolbar_add)
-            val actionBarAgenda = findViewById<ImageView>(R.id.toolbar_agenda)
-            val actionBarCity = findViewById<TextView>(R.id.toolbar_city)
-            val actionBarFilter = findViewById<ImageView>(R.id.toolbar_filter)
+            actionBarMenu = findViewById<ImageView>(R.id.toolbar_menu)
+            actionBarAdd = findViewById<ImageView>(R.id.toolbar_add)
+            actionBarAgenda = findViewById<ImageView>(R.id.toolbar_agenda)
+            actionBarCity = findViewById<TextView>(R.id.toolbar_city)
+            actionBarFilter = findViewById<ImageView>(R.id.toolbar_filter)
 
-            actionBarMenu.setOnClickListener {
-                showMenuAction()
-            }
-            actionBarAdd.setOnClickListener {
+            actionBarAdd?.setOnClickListener(View.OnClickListener {
                 addRouteAction()
-            }
-            actionBarAgenda.setOnClickListener {
-                showAgendaAction()
-            }
-            actionBarCity.setOnClickListener {
-                changeCityAction()
-            }
-            actionBarFilter.setOnClickListener {
-                showFilterAction()
-            }
+            })
+
         }
-
-
 
         val menuAnimation =GuillotineAnimation.GuillotineBuilder(guillotineMenu, guillotineMenu.findViewById(R.id.toolbar_menu), hambugerMenu)
                 .setActionBarViewForAnimation(toolbar)
@@ -77,13 +69,12 @@ abstract class BaseActivity : AppCompatActivity() {
         var toolbar = view.findViewById<Toolbar>(R.id.toolbar_light)
 
         if (toolbar != null) {
-            setSupportActionBar(toolbar);
-            supportActionBar!!.setDisplayHomeAsUpEnabled(true);
+            setSupportActionBar(toolbar)
 
             val actionbarLayout = layoutInflater.inflate(R.layout.toolbar_light, null)
             supportActionBar!!.setCustomView(actionbarLayout)
 
-            supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+            supportActionBar!!.setDisplayHomeAsUpEnabled(false)
             supportActionBar!!.setDisplayShowTitleEnabled(false)
             supportActionBar!!.setDisplayShowCustomEnabled(true)
 
@@ -99,25 +90,14 @@ abstract class BaseActivity : AppCompatActivity() {
         }
     }
 
-    fun showMenuAction() {
-
-    }
-
     fun addRouteAction() {
         navigationHelper.openCreateWroute()
-    }
-
-    fun showAgendaAction() {
-        navigationHelper.openAgenda()
     }
 
     fun changeCityAction() {
 
     }
 
-    fun showFilterAction() {
-
-    }
 
     fun saveWroute() {
 

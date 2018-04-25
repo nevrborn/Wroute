@@ -25,12 +25,34 @@
     <string name="main_today">Today</string>
     <string name="main_routes">Walking routes</string>
 
+    // FILTER FRAGMENT
+    <string name="filter_title">Filters</string>
+    <string name="filter_hide_today">Hide today\'s trips</string>
+    <string name="filter_type_of_route">Type of route</string>
+    <string name="filter_type_of_route_all">All</string>
+    <string name="filter_type_of_route_hot">Hot</string>
+    <string name="filter_type_of_route_curated">Curated</string>
+    <string name="filter_type_of_route_user">User Made</string>
+    <string name="filter_type_of_route_friends">Made by friends</string>
+    <string name="filter_sort_title">Sort</string>
+    <string name="filter_sort_no_sort">No sort</string>
+    <string name="filter_sort_created">Created</string>
+    <string name="filter_sort_closest">Closest</string>
+    <string name="filter_sort_duration">Duration</string>
+    <string name="filter_sort_rate">Rate</string>
+    <string name="filter_button_apply_filter">Apply filter</string>
+    <string name="filter_button_reset_filter">Reset filter</string>
+
+    // AGENDA FRAGMENT
+    <string name="agenda_trips">Trips this day</string>
+    <string name="agenda_no_trips">There are no trips planned this day</string>
+
     // START NEW WROUTE
     <string name="newWroute_title">Create a route</string>
     <string name="newWroute_name_hint">Enter name of route</string>
-    <string name="newWroute_long_description">Description of Route</string>
+    <string name="newWroute_long_description">Description of route</string>
 
-    <string name="newWroute_transport_mode">Best transport mode for the route</string>
+    <string name="newWroute_transport_mode">Transport mode</string>
     <string name="transport_mode_prompt">Choose transport mode</string>
     <string-array name="transport_modes">
         <item>Walking</item>
