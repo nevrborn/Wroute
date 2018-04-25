@@ -6,91 +6,72 @@
 
     <data>
         <import type="android.view.View"/>
-        <variable name="activity" type="com.donkeymonkey.wroute.views.activities.MainActivity" />
+        <variable name="fragment" type="com.donkeymonkey.wroute.views.fragments.MainFragment" />
         <variable name="viewModel" type="com.donkeymonkey.wroute.viewmodels.MainViewModel" />
     </data>
 
-    <FrameLayout
-        android:id="@+id/main_root"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@android:color/white">
+        android:layout_height="match_parent">
 
-        <View
-            android:layout_gravity="top"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/guillotine_actionbar_background_view_height"
-            android:background="@color/appDarkBlue"
-            />
+            android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <include layout="@layout/toolbar_main"/>
-
-            <ScrollView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-                <LinearLayout
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:text="@string/main_today"
+                    android:padding="10dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/appDarkBlue"
+                    android:textAllCaps="true"
+                    android:fontFamily="@font/gotham_bold"/>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/main_today"
-                        android:padding="10dp"
-                        android:textSize="20sp"
-                        android:textColor="@color/appDarkBlue"
-                        android:textAllCaps="true"
-                        android:fontFamily="@font/gotham_bold"/>
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/main_recycler_view_agenda"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="horizontal"
+                    app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                    tools:listitem="@layout/list_item_wroute_agenda"
+                    android:padding="10dp"
+                    android:orientation="horizontal">
 
-                    <android.support.v7.widget.RecyclerView
-                        android:id="@+id/main_list_wroutes_agenda"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:scrollbars="vertical"
-                        app:layoutManager="android.support.v7.widget.LinearLayoutManager"
-                        tools:listitem="@layout/list_item_wroute_agenda"
-                        android:padding="10dp"
-                        android:orientation="horizontal">
+                </android.support.v7.widget.RecyclerView>
 
-                    </android.support.v7.widget.RecyclerView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/main_routes"
+                    android:padding="10dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/appDarkBlue"
+                    android:textAllCaps="true"
+                    android:fontFamily="@font/gotham_bold"/>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/main_routes"
-                        android:padding="10dp"
-                        android:textSize="20sp"
-                        android:textColor="@color/appDarkBlue"
-                        android:textAllCaps="true"
-                        android:fontFamily="@font/gotham_bold"/>
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/main_recycler_view_wroutes"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="vertical"
+                    app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                    tools:listitem="@layout/list_item_wroute"
+                    android:padding="10dp">
 
-                    <android.support.v7.widget.RecyclerView
-                        android:id="@+id/main_list_wroutes"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scrollbars="vertical"
-                        app:layoutManager="android.support.v7.widget.LinearLayoutManager"
-                        tools:listitem="@layout/list_item_wroute"
-                        android:padding="10dp">
+                </android.support.v7.widget.RecyclerView>
 
-                    </android.support.v7.widget.RecyclerView>
+            </LinearLayout>
 
-                </LinearLayout>
-
-            </ScrollView>
-
-        </LinearLayout>
+        </ScrollView>
 
 
+    </LinearLayout>
 
-    </FrameLayout>
 
 </layout>
