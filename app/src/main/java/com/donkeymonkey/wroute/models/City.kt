@@ -6,6 +6,8 @@ class City : BaseModel {
     var country: String? = null
     var location: String? = null
     var wrouteIds: HashMap<String, Boolean>? = null
+    var tripIds: HashMap<String, Boolean>? = null
+    var campaignIds: HashMap<String, Boolean>? = null
 
     constructor() {
 

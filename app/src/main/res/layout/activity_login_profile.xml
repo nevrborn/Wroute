@@ -20,7 +20,7 @@
             android:id ="@+id/push_button"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:background="@drawable/shape_circle"
+            android:background="@drawable/shape_profile_circle"
             android:padding="15dp"
             android:layout_gravity="center"
             android:layout_marginTop="50dp"

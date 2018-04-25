@@ -1,65 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.Toolbar
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/toolbar"
-    android:layout_width="match_parent"
-    android:layout_height="50dp"
-    android:background="@color/appRed"
-    android:elevation="4dp"
-    app:contentInsetStart="0dp"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-    app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".views.activities.BaseActivity"
+        android:fitsSystemWindows="true">
 
-
-    <LinearLayout
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_light"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:weightSum="1">
+        android:layout_height="60dp"
+        android:background="@color/appRed"
+        android:elevation="4dp"
+        app:contentInsetStart="0dp"
+        android:gravity="center_vertical">
 
-        <LinearLayout
-            android:id="@+id/toolbar_top"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:orientation="horizontal"
-            android:padding="3dp">
-
-            <ImageView
-                android:id="@+id/toolbar_menu"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_menu"
-                android:layout_weight="0.2"
-                android:layout_gravity="start|center"/>
+                android:orientation="horizontal"
+                android:weightSum="1"
+                android:background="@color/appRed">
 
-            <ImageView
-                android:id="@+id/toolbar_logo"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.8"
-                android:src="@drawable/wroute_type_curated"/>
+                <Button
+                    android:id="@+id/button_cancel"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:background="@color/appRed"
+                    android:text="@string/stop_dialog_add_cancel"
+                    android:textColor="@android:color/white"
+                    android:fontFamily="@font/gotham_medium"/>
 
-            <ImageView
-                android:id="@+id/toolbar_add"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.2"
-                android:src="@drawable/ic_add"/>
+                <TextView
+                    android:id="@+id/textview_dialog_stop_number"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:padding="5dp"
+                    android:layout_weight="0.6"
+                    android:textColor="@android:color/white"
+                    android:fontFamily="@font/gotham_light"
+                    android:textAlignment="center"
+                    android:textSize="24sp"
+                    android:text="@string/newWroute_title"
+                    android:gravity="center"/>
 
-        </LinearLayout>
+                <Button
+                    android:id="@+id/button_save"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:background="@color/appRed"
+                    android:text="@string/stop_dialog_add_stop"
+                    android:textColor="@android:color/white"
+                    android:fontFamily="@font/gotham_medium"/>
 
-        <LinearLayout
-            android:id="@+id/toolbar_bottom"
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:orientation="horizontal"
-            android:background="@color/appRed"
-            android:padding="3dp">
+            </LinearLayout>
 
-        </LinearLayout>
-
-    </LinearLayout>
+    </android.support.v7.widget.Toolbar>
 
 
-</android.support.v7.widget.Toolbar>
+</layout>

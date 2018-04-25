@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".views.activities.CreateWrouteActivity">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable name="activity" type="com.donkeymonkey.wroute.views.activities.CreateWrouteActivity" />
+        <variable name="viewModel" type="com.donkeymonkey.wroute.viewmodels.CreateWrouteViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@android:color/white">
+
+        <include layout="@layout/toolbar_light"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <Button
+                android:id="@+id/button_previous"
+                android:layout_width="@dimen/create_route_next_button"
+                android:layout_height="@dimen/create_route_next_button"
+                android:background="@mipmap/ic_arrow_left"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:layout_margin="10dp"
+                android:onClick="@{() -> activity.changeFragment(false)}"
+                android:visibility="@{activity.currentPage == 0 ? View.GONE: View.VISIBLE}"
+                />
+
+            <Button
+                android:id="@+id/button_add_stop"
+                android:layout_width="@dimen/create_route_next_button"
+                android:layout_height="@dimen/create_route_next_button"
+                android:background="@mipmap/ic_plus"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:onClick="@{() -> activity.addStop()}"
+                android:visibility="@{activity.currentPage == 0 ? View.GONE: View.VISIBLE}"
+                />
+
+            <Button
+                android:id="@+id/button_next"
+                android:layout_width="@dimen/create_route_next_button"
+                android:layout_height="@dimen/create_route_next_button"
+                android:background="@mipmap/ic_arrow_right"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="10dp"
+                android:onClick="@{() -> activity.changeFragment(true)}"
+                android:visibility="@{activity.currentPage == 2 ? View.GONE: View.VISIBLE}"
+                />
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+</layout>

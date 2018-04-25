@@ -41,6 +41,14 @@
             android:name=".views.activities.MainActivity"
             android:windowSoftInputMode="adjustResize"
             android:theme="@style/generalnotitle" />
+        <activity
+            android:name=".views.activities.CreateWrouteActivity"
+            android:windowSoftInputMode="adjustNothing"
+            android:theme="@style/generalnotitle" />
+        <activity
+            android:name=".views.activities.AgendaActivity"
+            android:windowSoftInputMode="adjustNothing"
+            android:theme="@style/generalnotitle" />
     </application>
 
 </manifest>

@@ -1,7 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".views.activities.CreateWrouteActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <data>
+        <import type="android.view.View"/>
+        <variable name="wroute" type="com.donkeymonkey.wroute.models.Wroute"/>
+        <variable name="viewModel" type="com.donkeymonkey.wroute.viewmodels.CreateWrouteViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:weightSum="1"
+                android:padding="10dp"
+                android:background="@color/appOffWhite"
+                >
+
+                <TextView
+                    android:id="@+id/list_item_wroute_textview_kilometer"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.33"
+                    android:textColor="@color/appDarkBlue"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/gotham_light"
+                    android:gravity="start|center"
+                    android:text="@{wroute.distance != null ? @string/common_km(wroute.distance): @string/common_km_placeholder}"                    />
+
+                <TextView
+                    android:id="@+id/list_item_wroute_textview_stops"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.33"
+                    android:textColor="@color/appDarkBlue"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/gotham_light"
+                    android:gravity="center"
+                    android:text="@{wroute.stops.size != 0 ? @string/common_stops(wroute.stops.size): @string/common_stops_placeholder}"
+                    />
+
+                <TextView
+                    android:id="@+id/list_item_wroute_textview_hours"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.33"
+                    android:textColor="@color/appDarkBlue"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/gotham_light"
+                    android:gravity="end|center"
+                    android:text="@{wroute.stops.size != 0 ? @string/common_stops(wroute.stops.size): @string/common_stops_placeholder}"
+                    />
+
+            </LinearLayout>
+
+            <fragment
+                android:id="@+id/route_map"
+                class="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+
+</layout>

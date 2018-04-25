@@ -16,17 +16,23 @@ class Wroute : Serializable, BaseModel {
     var createDate: Long? = null
     var createDateString: String? = null
         get() = getDate(createDate.let { it } ?: 0)
+
     var name: String? = null
     var description: String? = null
-    //var type: Defines.WrouteType? = null
     val image: Bitmap? = null
+
+    val transportMode: Defines.Transport? = null
     var category: String? = null
-    var polyLine: PolylineOptions? = null
+    var type: HashMap<Defines.WrouteType?, Boolean>? = null
+
     var stops = ArrayList<Stop>()
     var distance: Int? = null
     var duration: Int? = null
 
-    var trips: ArrayList<Trip>? = null
+    var polyLine: PolylineOptions? = null
+
+    var rating: Int? = null
+    var numberOfWalksDone: Int? = null
 
     constructor() {
 

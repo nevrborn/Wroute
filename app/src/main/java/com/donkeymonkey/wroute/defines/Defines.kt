@@ -20,4 +20,36 @@ class Defines {
         User,
         Popular
     }
+
+    enum class Transport(val mode: String) {
+        Walking("Walking"),
+        Bicyle("Bicycling"),
+        Driving("Driving"),
+        Transit("Transit")
+    }
+
+    /* STOP ENUMS */
+    enum class StopCategory {
+        Museum,
+        Shop
+    }
+
+    enum class StopEating {
+        Breakfast,
+        Lunch,
+        Dinner,
+        Coffee,
+        Bar,
+        Nightclub
+    }
+
+    enum class StopCost {
+        Free,
+        Cheap,
+        Moderate,
+        Expensive,
+        VeryExpensive
+    }
+
+
 }

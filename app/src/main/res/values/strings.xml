@@ -2,6 +2,18 @@
     <string name="app_name">Wroute</string>
     <string name="firebase_API_key">AIzaSyAxLF8aKZiWcMJtY0NB9VVDTNe8PU7Uv0k</string>
 
+    // COMMON
+    <string name="common_enter_text">Enter text</string>
+    <string name="common_previous">Previous</string>
+    <string name="common_next">Next</string>
+
+    <string name="common_km">%1d KM</string>
+    <string name="common_stops">%1d STOPS</string>
+    <string name="common_hrs">%1d HRS</string>
+    <string name="common_km_placeholder">- KM</string>
+    <string name="common_stops_placeholder">- STOPS</string>
+    <string name="common_hrs_placeholder">- HRS</string>
+
     // LOGIN
     <string name="login_button">Login</string>
     <string name="login_profile_picture_button">ADD PROFILE PICTURE</string>
@@ -14,9 +26,17 @@
     <string name="main_routes">Walking routes</string>
 
     // START NEW WROUTE
+    <string name="newWroute_title">Create a route</string>
     <string name="newWroute_name_hint">Enter name of route</string>
-    <string name="newWroute_short_description">SHORT DESCRIPTION</string>
-    <string name="newWroute_long_description">LONG DESCRIPTION</string>
+    <string name="newWroute_long_description">Description of Route</string>
+
+    <string name="newWroute_transport_mode">Best transport mode for the route</string>
+    <string name="transport_mode_prompt">Choose transport mode</string>
+    <string-array name="transport_modes">
+        <item>Walking</item>
+        <item>Bicycling</item>
+    </string-array>
+
     <string name="newWroute_time_of_day">BEST TIME TO START</string>
     <string name="newWroute_includes">INCLUDES</string>
     <string name="newWroute_time_of_day_morning">Morning</string>
@@ -24,16 +44,7 @@
     <string name="newWroute_time_of_day_evening">Evening</string>
     <string name="newWroute_character_count">%1$d/140</string>
     <string name="newWroute_optional">(optional)</string>
-    <string name="newWroute_short_description_hint">A short explanation of the route to entice people to check it out (max. 140 characters) </string>
-    <string name="newWroute_short_description_hint_short">Enter text </string>
-    <string name="newWroute_long_description_hint">A longer description of the route people will se when they open up your route. This is optional. Otherwise the short description will be used </string>
-    <string name="newWroute_long_description_hint_short">Enter text - to be used for full description </string>
-
-    <string name="newWroute_info">INFO</string>
-    <string name="newWroute_stops">STOPS</string>
-    <string name="newWroute_map">ROUTE</string>
-    <string name="newWroute_finish">FINISH</string>
-    <string name="newWroute_reviews">REVIEWS</string>
+    <string name="newWroute_long_description_hint">Enter a description of the route</string>
 
     <string name="newWroute_tag_1">Cafe</string>
     <string name="newWroute_tag_2">Restaurant</string>
@@ -46,14 +57,19 @@
     <string name="stops_first_stop">First Stop</string>
     <string name="stops_end_stop">Final Stop</string>
     <string name="stops_inbetween_stop">STOP #%1$d</string>
+    <string name="stops_explanation">USE THE + BUTTON TO ADD NEW STOPS</string>
 
     // STOP DIALOG
-    <string name="stop_dialog_stop_number">STOP #%1$d</string>
-    <string name="stop_dialog_title">TITLE</string>
+    <string name="stop_dialog_top_title">Create a stop</string>
+    <string name="stop_dialog_search_placeholder">Street address, name of location, etc…</string>
+    <string name="stop_dialog_title">Title</string>
     <string name="stop_dialog_title_hint">Enter a title for the stop</string>
-    <string name="stop_dialog_description">DESCRIPTION</string>
+    <string name="stop_dialog_description">Description</string>
     <string name="stop_dialog_description_hint">Enter a description of the stop</string>
     <string name="stop_dialog_short_stop">Short stop</string>
+    <string name="stop_dialog_picture">Add a pic</string>
+
+
     <string name="stop_dialog_category">CATEGORY</string>
     <string name="stop_dialog_category_1">Museum</string>
     <string name="stop_dialog_category_2">Building</string>
@@ -61,7 +77,7 @@
     <string name="stop_dialog_category_4">Coffee</string>
     <string name="stop_dialog_category_5">Food</string>
     <string name="stop_dialog_category_6">Drinks</string>
-    <string name="stop_dialog_add_stop">ADD STOP</string>
+    <string name="stop_dialog_add_stop">SAVE</string>
     <string name="stop_dialog_add_cancel">CANCEL</string>
     <string name="stop_dialog_add_address">ADDRESS</string>
 

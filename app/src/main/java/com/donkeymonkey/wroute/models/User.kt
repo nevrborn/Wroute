@@ -18,8 +18,9 @@ class User {
 
     var descripton: String? = null
 
-    var wrouteIds: ArrayList<String>? = null
-    var likedWrouteIds: ArrayList<String>? = null
+    var wrouteIds: HashMap<String, Boolean>? = null
+    var likedWrouteIds: HashMap<String, Boolean>? = null
+    var completedWrouteIds: HashMap<String, Boolean>? = null
 
     var following: ArrayList<String>? = null
     var followers: ArrayList<String>? = null

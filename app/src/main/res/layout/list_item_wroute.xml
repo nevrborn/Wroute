@@ -32,7 +32,7 @@
             android:src="@color/appGreenShade"
             android:alpha="0.8"
             />
-        
+
         <ImageView
             android:id="@+id/list_item_wroute_imageview_type"
             android:layout_width="50dp"
@@ -51,8 +51,6 @@
             android:orientation="horizontal"
             android:weightSum="1"
             android:padding="10dp">
-
-
 
         </LinearLayout>
 
@@ -96,7 +94,7 @@
                 android:textSize="20sp"
                 android:fontFamily="@font/gotham_light"
                 android:gravity="start|center"
-                android:text="10 KM"
+                android:text="@{wroute.distance != null ? @string/common_km(wroute.distance): @string/common_km_placeholder}"
                 />
 
             <TextView
@@ -108,7 +106,7 @@
                 android:textSize="20sp"
                 android:fontFamily="@font/gotham_light"
                 android:gravity="center"
-                tools:text="12 STOPS"
+                android:text="@{wroute.stops.size != 0 ? @string/common_stops(wroute.stops.size): @string/common_stops_placeholder}"
                 />
 
             <TextView
@@ -120,8 +118,7 @@
                 android:textSize="20sp"
                 android:fontFamily="@font/gotham_light"
                 android:gravity="end|center"
-                tools:text="6 HRS"
-                android:text="@{wroute.description}"
+                android:text="@{wroute.duration != null ? @string/common_hrs(wroute.duration): @string/common_hrs_placeholder}"
                 />
 
         </LinearLayout>

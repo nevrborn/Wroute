@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/appDarkBlue"
+    android:alpha="0.98">
+
+    <LinearLayout
+        android:id="@+id/toolbar_top"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/toolbar_menu"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.15"
+            android:layout_gravity="start|center"
+            android:padding="12dp"
+            android:src="@drawable/ic_menu"
+            android:background="@color/appDarkBlue"
+            android:rotation="90"
+            />
+
+        <TextView
+            android:id="@+id/toolbar_logo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:text="@string/app_name"
+            android:layout_marginStart="15dp"
+            android:textSize="25sp"
+            android:textColor="@android:color/white"
+            android:fontFamily="@font/gotham_light"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:visibility="invisible"
+            />
+
+        <ImageView
+            android:id="@+id/toolbar_add"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.15"
+            android:padding="12dp"
+            android:src="@drawable/ic_add"
+            android:background="@color/appRed"
+            android:visibility="invisible"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/profile_group"
+        style="@style/LinearLayout.GuillotineItem"
+        android:layout_marginTop="@dimen/guillotine_medium_margin">
+
+        <ImageView
+            style="@style/ImageView.GuillotineItem"
+            android:src="@drawable/ic_agenda" />
+
+        <com.donkeymonkey.wroute.views.widget.CanaroTextView
+            style="@style/TextView.GuillotineItem"
+            android:text="Profile" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/guillotine_divider_height" />
+
+    <LinearLayout
+        android:id="@+id/feed_group"
+        style="@style/LinearLayout.GuillotineItem">
+
+        <ImageView
+            style="@style/ImageView.GuillotineItem"
+            android:src="@drawable/ic_agenda" />
+
+        <com.donkeymonkey.wroute.views.widget.CanaroTextView
+            style="@style/TextView.GuillotineItem"
+            android:text="About Wroute" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/guillotine_divider_height" />
+
+    <LinearLayout
+        android:id="@+id/activity_group"
+        style="@style/LinearLayout.GuillotineItem">
+
+        <ImageView
+            style="@style/ImageView.GuillotineItem"
+            android:src="@drawable/ic_agenda" />
+
+        <com.donkeymonkey.wroute.views.widget.CanaroTextView
+            style="@style/TextView.GuillotineItem"
+            android:text="Settings" />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/settings_group"
+        style="@style/LinearLayout.GuillotineItem">
+
+        <ImageView
+            style="@style/ImageView.GuillotineItem"
+            android:src="@drawable/ic_agenda" />
+
+        <com.donkeymonkey.wroute.views.widget.CanaroTextView
+            style="@style/TextView.GuillotineItem"
+            android:text="Log out" />
+    </LinearLayout>
+
+    </LinearLayout>

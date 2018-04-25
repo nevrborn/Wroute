@@ -3,11 +3,13 @@ package com.donkeymonkey.wroute.views.activities
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import com.donkeymonkey.wroute.R
 import com.donkeymonkey.wroute.helpers.*
+import com.yalantis.guillotine.animation.GuillotineAnimation
+import kotlinx.android.synthetic.main.toolbar_main.*
 
 abstract class BaseActivity : AppCompatActivity() {
     val navigationHelper = NavigationHelper(this)
@@ -20,6 +22,11 @@ abstract class BaseActivity : AppCompatActivity() {
 
     fun configureToolBar(view: View) {
         var toolbar = view.findViewById<Toolbar>(R.id.toolbar)
+
+        val hambugerMenu = findViewById<ImageView>(R.id.toolbar_menu)
+        val root = findViewById<FrameLayout>(R.id.main_root)
+        val guillotineMenu = LayoutInflater.from(this).inflate(R.layout.menu, null)
+        root.addView(guillotineMenu)
 
         if (toolbar != null) {
             setSupportActionBar(toolbar);
@@ -54,26 +61,70 @@ abstract class BaseActivity : AppCompatActivity() {
                 showFilterAction()
             }
         }
+
+
+
+        val menuAnimation =GuillotineAnimation.GuillotineBuilder(guillotineMenu, guillotineMenu.findViewById(R.id.toolbar_menu), hambugerMenu)
+                .setActionBarViewForAnimation(toolbar)
+                .setClosedOnStart(true)
+                .build()
+
+        val hamburger = guillotineMenu.findViewById<ImageView>(R.id.toolbar_menu)
+        hamburger.setOnClickListener { menuAnimation.close() }
+    }
+
+    fun configureLightToolbar(view: View) {
+        var toolbar = view.findViewById<Toolbar>(R.id.toolbar_light)
+
+        if (toolbar != null) {
+            setSupportActionBar(toolbar);
+            supportActionBar!!.setDisplayHomeAsUpEnabled(true);
+
+            val actionbarLayout = layoutInflater.inflate(R.layout.toolbar_light, null)
+            supportActionBar!!.setCustomView(actionbarLayout)
+
+            supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+            supportActionBar!!.setDisplayShowTitleEnabled(false)
+            supportActionBar!!.setDisplayShowCustomEnabled(true)
+
+            val actionBarCancel = findViewById<Button>(R.id.button_cancel)
+            val actionBarSave = findViewById<Button>(R.id.button_save)
+
+            actionBarCancel.setOnClickListener {
+                cancel()
+            }
+            actionBarSave.setOnClickListener {
+                saveWroute()
+            }
+        }
     }
 
     fun showMenuAction() {
-        Log.d("Toolbar:", "Show Menu")
+
     }
 
     fun addRouteAction() {
-        Log.d("Toolbar:", "Add Route")
+        navigationHelper.openCreateWroute()
     }
 
     fun showAgendaAction() {
-        Log.d("Toolbar:", "Show Agenda")
+        navigationHelper.openAgenda()
     }
 
     fun changeCityAction() {
-        Log.d("Toolbar:", "Change City")
+
     }
 
     fun showFilterAction() {
-        Log.d("Toolbar:", "Show Filter")
+
+    }
+
+    fun saveWroute() {
+
+    }
+
+    fun cancel() {
+        finish()
     }
 
 }

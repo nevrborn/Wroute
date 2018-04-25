@@ -2,16 +2,15 @@ package com.donkeymonkey.wroute.helpers
 
 import android.app.Activity
 import android.content.Intent
-import com.donkeymonkey.wroute.views.activities.BaseActivity
-import com.donkeymonkey.wroute.views.activities.LoginActivity
-import com.donkeymonkey.wroute.views.activities.LoginProfileActivity
-import com.donkeymonkey.wroute.views.activities.MainActivity
+import com.donkeymonkey.wroute.views.activities.*
 import com.donkeymonkey.wroute.views.fragments.BaseFragment
 
 class NavigationHelper(private val activity: Activity) {
-    fun openMainActivity() = navigate(MainActivity::class.java, true)
+    fun openMainActivity() = navigate(MainActivity::class.java, false)
     fun openLogin() = navigate(LoginActivity::class.java, true)
     fun openLoginProfile() = navigate(LoginProfileActivity::class.java, true)
+    fun openCreateWroute() = navigate(CreateWrouteActivity::class.java, false)
+    fun openAgenda() = navigate(AgendaActivity::class.java, false)
 
     fun navigate(destination: Class<*>, clearTop: Boolean) {
         val intent = Intent(activity, destination)
@@ -31,6 +30,10 @@ class NavigationHelper(private val activity: Activity) {
         }
         fragmentTransaction.replace(container, fragment)
         fragmentTransaction.commit()
+    }
+
+    fun loadDialog() {
+
     }
 
     companion object {

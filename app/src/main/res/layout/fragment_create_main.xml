@@ -2,29 +2,44 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        tools:context=".views.activities.MainActivity">
+        tools:context=".views.activities.CreateWrouteActivity">
 
     <data>
         <import type="android.view.View"/>
         <variable name="wroute" type="com.donkeymonkey.wroute.models.Wroute" />
+        <variable name="viewModel" type="com.donkeymonkey.wroute.viewmodels.CreateWrouteViewModel" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <include layout="@layout/toolbar_main"/>
+        android:orientation="vertical"
+        android:weightSum="1">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="180dp">
+            android:layout_height="0dp"
+            android:background="@drawable/border_shadow"
+            android:padding="10dp"
+            android:layout_margin="15dp"
+            android:layout_weight="0.4">
 
             <ImageView
-                android:id="@+id/create_main_wroute_image"
+                android:id="@+id/list_item_wroute_image"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@android:color/black"
+                android:layout_height="250dp"
+                android:background="@color/appRed"
+                android:src="@drawable/img_skylounge"
+                android:scaleType="fitXY"
+                />
+
+            <ImageView
+                android:id="@+id/list_item_wroute_image_tint"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:scaleType="fitXY"
+                android:src="@color/appGreenShade"
+                android:alpha="0.8"
                 />
 
             <LinearLayout
@@ -34,115 +49,134 @@
                 android:weightSum="1"
                 android:padding="10dp">
 
-                <TextView
-                    android:id="@+id/create_main_textview_agenda"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.8"
-                    android:textColor="@android:color/white"
-                    android:textSize="15sp"
-                    android:fontFamily="@font/norwester"
-                    android:gravity="start|center"
-                    android:text="@{wroute.createDateString}"
-                    tools:text="--"
-                    />
 
-                <ImageView
-                    android:id="@+id/create_main_imageview_type"
-                    android:layout_width="0dp"
-                    android:layout_height="25dp"
-                    android:layout_weight="0.2"
-                    android:adjustViewBounds="true"
-                    android:scaleType="fitEnd"
-                    android:layout_gravity="end|center"
-                    tools:src="@drawable/wroute_type_curated"
-                    android:visibility="gone"
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="20dp">
+
+                <EditText
+                    android:id="@+id/editText_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="25sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginStart="20dp"
+                    android:hint="@string/newWroute_name_hint"
+                    android:textColorHint="@android:color/white"
+                    android:fontFamily="@font/gotham_light"
+                    android:backgroundTint="@color/appOffWhite"
+                    android:text="@={viewModel.wroute.name}"
                     />
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/create_main_textview_title"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:textColor="@android:color/white"
-                android:fontFamily="@font/norwester"
-                android:textSize="35sp"
-                android:gravity="center"
-                android:layout_centerVertical="true"
-                android:textAlignment="center"
-                android:text="@{wroute.name}"
-                tools:text="TITLE"
-                />
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:orientation="horizontal"
                 android:weightSum="1"
                 android:padding="10dp"
                 android:layout_alignParentBottom="true"
+                android:background="@color/appOffWhite"
                 >
 
                 <TextView
-                    android:id="@+id/create_main_textview_kilometer"
+                    android:id="@+id/list_item_wroute_textview_kilometer"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.33"
-                    android:textColor="@android:color/white"
-                    android:textSize="15sp"
-                    android:fontFamily="@font/norwester"
+                    android:textColor="@color/appDarkBlue"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/gotham_light"
                     android:gravity="start|center"
-                    tools:text="-- KM"
+                    android:text="@{viewModel.wroute.distance != null ? @string/common_km(wroute.distance): @string/common_km_placeholder}"
                     />
 
                 <TextView
-                    android:id="@+id/create_main_textview_stops"
+                    android:id="@+id/list_item_wroute_textview_stops"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.33"
-                    android:textColor="@android:color/white"
-                    android:textSize="15sp"
-                    android:fontFamily="@font/norwester"
-                    tools:text="-- STOPS"
+                    android:textColor="@color/appDarkBlue"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/gotham_light"
+                    android:gravity="center"
+                    android:text="10 STOPS"
                     />
 
                 <TextView
-                    android:id="@+id/create_main_textview_hours"
+                    android:id="@+id/list_item_wroute_textview_hours"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.33"
-                    android:textColor="@android:color/white"
-                    android:textSize="15sp"
-                    android:fontFamily="@font/norwester"
+                    android:textColor="@color/appDarkBlue"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/gotham_light"
                     android:gravity="end|center"
-                    tools:text="-- HRS"
+                    android:text="@{viewModel.wroute.duration != null ? @string/common_hrs(wroute.duration): @string/common_hrs_placeholder}"
                     />
 
             </LinearLayout>
 
         </RelativeLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="20dp"
-            android:orientation="vertical">
+            android:layout_height="0dp"
+            android:layout_weight="0.6"
+            android:layout_margin="15dp">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Description"
-                android:fontFamily="@font/amatraca_grotesque_normal"
-                android:textColor="@color/appRed"/>
+                android:layout_height="match_parent"
+                android:padding="20dp"
+                android:orientation="vertical">
 
-            <EditText
-            android:layout_width="match_parent"
-            android:layout_height="100dp"/>
+                <TextView
+                    android:id="@+id/textview_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/newWroute_long_description"
+                    android:fontFamily="@font/gotham_light"
+                    android:textColor="@color/appRed"
+                    android:layout_marginBottom="5dp"/>
+
+                <EditText
+                    android:id="@+id/editText_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/appRed"
+                    android:hint="@string/common_enter_text"
+                    android:layout_marginBottom="25dp"
+                    android:fontFamily="@font/gotham_light"
+                    android:text="@={viewModel.description}"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/newWroute_transport_mode"
+                    android:fontFamily="@font/gotham_light"
+                    android:textColor="@color/appRed"
+                    android:layout_marginBottom="5dp"/>
+
+                <Spinner
+                    android:id="@+id/spinner_transport_mode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/transport_modes"
+                    android:prompt="@string/transport_mode_prompt"/>
+
+            </LinearLayout>
 
 
-
-        </LinearLayout>
+        </RelativeLayout>
 
     </LinearLayout>
 

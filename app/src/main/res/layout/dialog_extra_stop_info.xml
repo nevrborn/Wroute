@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".views.activities.CreateWrouteActivity">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable name="activity" type="com.donkeymonkey.wroute.views.activities.CreateWrouteActivity" />
+        <variable name="viewModel" type="com.donkeymonkey.wroute.viewmodels.StopViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            android:background="@color/appRed">
+
+            <Button
+                android:id="@+id/button_add_stop_cancel"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:background="@color/appRed"
+                android:text="@string/stop_dialog_add_cancel"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/gotham_medium"/>
+
+            <TextView
+                android:id="@+id/textview_dialog_stop_number"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:layout_weight="0.6"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/gotham_light"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:text="@string/stop_dialog_top_title"/>
+
+            <Button
+                android:id="@+id/button_add_stop"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:background="@color/appRed"
+                android:text="@string/stop_dialog_add_stop"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/gotham_medium"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+</layout>

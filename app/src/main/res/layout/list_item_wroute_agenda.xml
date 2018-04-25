@@ -112,7 +112,7 @@
                 android:textSize="15sp"
                 android:fontFamily="@font/gotham_light"
                 android:gravity="start|center"
-                tools:text="10 KM"
+                android:text="@{wroute.distance != null ? @string/common_km(wroute.distance): @string/common_km_placeholder}"
                 />
 
             <TextView
@@ -124,7 +124,7 @@
                 android:textSize="15sp"
                 android:fontFamily="@font/gotham_light"
                 android:gravity="end|center"
-                tools:text="6 HRS"
+                android:text="@{wroute.duration != null ? @string/common_hrs(wroute.duration): @string/common_hrs_placeholder}"
                 />
 
         </LinearLayout>

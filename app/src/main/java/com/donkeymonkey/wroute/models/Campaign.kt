@@ -2,6 +2,7 @@ package com.donkeymonkey.wroute.models
 
 import java.util.*
 import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 
 class Campaign : BaseModel {
 
@@ -11,7 +12,7 @@ class Campaign : BaseModel {
     var startDate: Long? = null
     var endDate: Long? = null
 
-    var wroutes: ArrayList<Wroute>? = null
+    var wrouteIds: HashMap<String, Boolean>? = null
 
     constructor() {
 

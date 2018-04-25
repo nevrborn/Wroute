@@ -2,12 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        tools:context=".views.activities.MainActivity">
+        tools:context=".views.activities.AgendaActivity">
 
     <data>
         <import type="android.view.View"/>
-        <variable name="activity" type="com.donkeymonkey.wroute.views.activities.MainActivity" />
-        <variable name="viewModel" type="com.donkeymonkey.wroute.viewmodels.MainViewModel" />
+        <variable name="activity" type="com.donkeymonkey.wroute.views.activities.AgendaActivity" />
+        <variable name="viewModel" type="com.donkeymonkey.wroute.viewmodels.AgendaViewModel" />
     </data>
 
     <FrameLayout
@@ -31,6 +31,13 @@
 
             <include layout="@layout/toolbar_main"/>
 
+            <devs.mulham.horizontalcalendar.HorizontalCalendarView
+                android:id="@+id/calendarView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/appGreenShade"
+                app:textColorSelected="@color/appOffWhite"/>
+
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -38,39 +45,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/main_today"
-                        android:padding="10dp"
-                        android:textSize="20sp"
-                        android:textColor="@color/appDarkBlue"
-                        android:textAllCaps="true"
-                        android:fontFamily="@font/gotham_bold"/>
-
-                    <android.support.v7.widget.RecyclerView
-                        android:id="@+id/main_list_wroutes_agenda"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:scrollbars="vertical"
-                        app:layoutManager="android.support.v7.widget.LinearLayoutManager"
-                        tools:listitem="@layout/list_item_wroute_agenda"
-                        android:padding="10dp"
-                        android:orientation="horizontal">
-
-                    </android.support.v7.widget.RecyclerView>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/main_routes"
-                        android:padding="10dp"
-                        android:textSize="20sp"
-                        android:textColor="@color/appDarkBlue"
-                        android:textAllCaps="true"
-                        android:fontFamily="@font/gotham_bold"/>
+                    android:orientation="vertical"
+                    android:layout_marginTop="10dp">
 
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/main_list_wroutes"
