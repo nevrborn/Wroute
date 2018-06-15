@@ -24,21 +24,17 @@ class CreateWrouteMainFragment: BaseFragment() {
         return CreateWrouteMainFragment()
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_create_main, container, false)
 
-        viewModel = ViewModelProviders.of(this).get(CreateWrouteViewModel::class.java)
+        viewModel = ViewModelProviders.of(activity!!).get(CreateWrouteViewModel::class.java)
 
-        binding = DataBindingUtil.inflate(layoutInflater, R.layout.fragment_create_main, container, true)
+        binding = DataBindingUtil.inflate(layoutInflater, R.layout.fragment_create_main, container, false)
         binding.viewModel = viewModel
+        binding.wroute = viewModel.getWroute().value
+        binding.fragment = this
         binding.setLifecycleOwner(this)
 
-        return view
+        return binding.root
     }
 
 }

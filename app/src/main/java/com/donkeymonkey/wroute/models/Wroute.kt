@@ -1,6 +1,7 @@
 package com.donkeymonkey.wroute.models
 
 import android.graphics.Bitmap
+import com.donkeymonkey.wroute.BR
 import com.donkeymonkey.wroute.defines.Defines
 import java.io.Serializable
 import java.text.SimpleDateFormat
@@ -18,6 +19,11 @@ class Wroute : Serializable, BaseModel {
         get() = getDate(createDate.let { it } ?: 0)
 
     var name: String? = null
+    set(value) {
+        field = value
+        notifyPropertyChanged(BR.fragment)
+    }
+
     var description: String? = null
     val image: Bitmap? = null
 
@@ -60,8 +66,6 @@ class Wroute : Serializable, BaseModel {
     fun setDateString() {
         createDateString = getDate(createDate.let { it } ?: 0)
     }
-
-
 
 }
 

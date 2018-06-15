@@ -1,18 +1,24 @@
 package com.donkeymonkey.wroute.views.activities
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v4.view.ViewPager
+import android.support.v7.widget.Toolbar
 import android.view.View
+import android.widget.Button
 import com.donkeymonkey.wroute.R
 import com.donkeymonkey.wroute.databinding.ActivityCreateWrouteBinding
+import com.donkeymonkey.wroute.defines.Defines
+import com.donkeymonkey.wroute.models.Wroute
 import com.donkeymonkey.wroute.viewmodels.CreateWrouteViewModel
 import com.donkeymonkey.wroute.views.adapters.ViewPageAdapter
 import com.donkeymonkey.wroute.views.dialogs.StopDialog
 import com.donkeymonkey.wroute.views.fragments.CreateWrouteMainFragment
 import com.donkeymonkey.wroute.views.fragments.CreateWrouteMapFragment
 import com.donkeymonkey.wroute.views.fragments.CreateWrouteStopFragment
+import java.util.*
 
 class CreateWrouteActivity : BaseActivity() {
     lateinit var viewModel: CreateWrouteViewModel
@@ -30,8 +36,9 @@ class CreateWrouteActivity : BaseActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_create_wroute)
         binding.activity = this
         binding.viewModel = viewModel
+        binding.setLifecycleOwner(this)
 
-        configureLightToolbar(binding.root)
+        val toolbar = configureCreateWrouteToolbar(binding.root)
 
         pagerAdapter = ViewPageAdapter(supportFragmentManager)
 
@@ -54,6 +61,43 @@ class CreateWrouteActivity : BaseActivity() {
             override fun onPageSelected(position: Int) {
             }
         })
+    }
+
+    fun configureCreateWrouteToolbar(view: View) {
+        val toolbar = view.findViewById<Toolbar>(R.id.toolbar_light)
+
+        if (toolbar != null) {
+            setSupportActionBar(toolbar)
+
+            val actionbarLayout = layoutInflater.inflate(R.layout.toolbar_light, null)
+            supportActionBar!!.setCustomView(actionbarLayout)
+
+            supportActionBar!!.setDisplayHomeAsUpEnabled(false)
+            supportActionBar!!.setDisplayShowTitleEnabled(false)
+            supportActionBar!!.setDisplayShowCustomEnabled(true)
+
+            val actionBarCancel = findViewById<Button>(R.id.button_cancel)
+            val actionBarSave = findViewById<Button>(R.id.button_save)
+
+            actionBarCancel.setOnClickListener {
+                cancel()
+            }
+            actionBarSave.setOnClickListener {
+                saveWroute(viewModel.wroute.value)
+            }
+        }
+    }
+
+    fun saveWroute(wroute: Wroute?) {
+
+        if (wroute != null) {
+
+            wroute.creatorId = firebaseAuthHelper.mCurrentUser?.uid
+            wroute.createDate = Date().time
+
+            firebaseDBHelper.storeDocument(Defines.FirebaseDB.Wroutes, wroute)
+            cancel()
+        }
 
     }
 

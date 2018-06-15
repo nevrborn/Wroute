@@ -30,11 +30,11 @@ class FilterFragment: BaseFragment() {
 
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
 
-        binding = DataBindingUtil.inflate(layoutInflater, R.layout.fragment_filter, container, true)
+        binding = DataBindingUtil.inflate(layoutInflater, R.layout.fragment_filter, container, false)
         binding.viewModel = viewModel
         binding.fragment = this
         binding.setLifecycleOwner(this)
 
-        return view
+        return binding.root
     }
 }

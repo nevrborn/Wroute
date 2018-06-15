@@ -1,20 +1,26 @@
 package com.donkeymonkey.wroute.viewmodels
 
+import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
+import android.database.Observable
 import android.databinding.ObservableField
 import com.donkeymonkey.wroute.defines.Defines
 import com.donkeymonkey.wroute.models.Wroute
+import io.reactivex.internal.operators.observable.ObservableAny
 
 class CreateWrouteViewModel: BaseViewModel() {
 
-    var wroute = MutableLiveData<Wroute>()
-    var wroute1 = Wroute("1", "MkJmwUTZDlUQP7Iqw770PqIVDkb2",  "TEST WROUTE", "Just a little test", Defines.WrouteType.Curated, 10, 23)
+    var wroute = ObservableAny<Wroute>()
 
     init {
-        this.wroute.postValue(wroute1)
+        wroute
+
+        wroute.postValue(Wroute())
     }
 
     val description = ObservableField<String>()
 
-    fun getWrouteLive() = wroute
+    fun getWroute(): LiveData<Wroute> {
+        return wroute
+    }
 }

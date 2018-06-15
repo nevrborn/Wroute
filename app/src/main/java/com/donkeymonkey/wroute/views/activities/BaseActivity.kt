@@ -7,7 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
 import com.donkeymonkey.wroute.R
+import com.donkeymonkey.wroute.defines.Defines
 import com.donkeymonkey.wroute.helpers.*
+import com.donkeymonkey.wroute.models.Wroute
 import com.yalantis.guillotine.animation.GuillotineAnimation
 import kotlinx.android.synthetic.main.toolbar_main.*
 
@@ -26,8 +28,8 @@ abstract class BaseActivity : AppCompatActivity() {
     var actionBarFilter: View? = null
 
 
-    fun configureToolBar(view: View) {
-        var toolbar = view.findViewById<Toolbar>(R.id.toolbar)
+    fun configureToolBar(view: View): Toolbar {
+        val toolbar = view.findViewById<Toolbar>(R.id.toolbar)
 
         val hambugerMenu = findViewById<ImageView>(R.id.toolbar_menu)
         val root = findViewById<FrameLayout>(R.id.main_root)
@@ -63,32 +65,11 @@ abstract class BaseActivity : AppCompatActivity() {
 
         val hamburger = guillotineMenu.findViewById<ImageView>(R.id.toolbar_menu)
         hamburger.setOnClickListener { menuAnimation.close() }
+
+        return toolbar
     }
 
-    fun configureLightToolbar(view: View) {
-        var toolbar = view.findViewById<Toolbar>(R.id.toolbar_light)
 
-        if (toolbar != null) {
-            setSupportActionBar(toolbar)
-
-            val actionbarLayout = layoutInflater.inflate(R.layout.toolbar_light, null)
-            supportActionBar!!.setCustomView(actionbarLayout)
-
-            supportActionBar!!.setDisplayHomeAsUpEnabled(false)
-            supportActionBar!!.setDisplayShowTitleEnabled(false)
-            supportActionBar!!.setDisplayShowCustomEnabled(true)
-
-            val actionBarCancel = findViewById<Button>(R.id.button_cancel)
-            val actionBarSave = findViewById<Button>(R.id.button_save)
-
-            actionBarCancel.setOnClickListener {
-                cancel()
-            }
-            actionBarSave.setOnClickListener {
-                saveWroute()
-            }
-        }
-    }
 
     fun addRouteAction() {
         navigationHelper.openCreateWroute()
@@ -99,9 +80,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
 
-    fun saveWroute() {
 
-    }
 
     fun cancel() {
         finish()

@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import com.donkeymonkey.wroute.R
 import com.donkeymonkey.wroute.databinding.FragmentCreateMainBinding
 import com.donkeymonkey.wroute.databinding.FragmentMainBinding
+import com.donkeymonkey.wroute.defines.Defines
 import com.donkeymonkey.wroute.models.City
 import com.donkeymonkey.wroute.models.User
 import com.donkeymonkey.wroute.models.Wroute
@@ -33,7 +34,7 @@ class MainFragment: BaseFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_main, container, false)
 
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProviders.of(activity!!).get(MainViewModel::class.java)
 
         setUpHelpers(this.context!!)
 
@@ -51,9 +52,11 @@ class MainFragment: BaseFragment() {
     }
 
     fun sendDummyWroutes() {
-        firebaseDBHelper.storeCity(City("Amsterdam", "The Netherlands", "Blabla")).subscribe()
-        firebaseDBHelper.storeWroute(viewModel.wroute1).subscribe()
-        firebaseDBHelper.storeWroute(viewModel.wroute2).subscribe()
+//        firebaseDBHelper.storeDocument(Defines.FirebaseDB.Wroutes, viewModel.wroute1).subscribe()
+//        firebaseDBHelper.storeDocument(Defines.FirebaseDB.Wroutes, viewModel.wroute2).subscribe()
+//        firebaseDBHelper.storeDocument(Defines.FirebaseDB.Cities, viewModel.city1).subscribe()
+//        firebaseDBHelper.storeDocument(Defines.FirebaseDB.Cities, viewModel.city2).subscribe()
+//        firebaseDBHelper.storeDocument(Defines.FirebaseDB.Trips, viewModel.trip1).subscribe()
     }
 
     fun setupAgendaCarousel() {
@@ -68,7 +71,7 @@ class MainFragment: BaseFragment() {
         firebaseDBHelper.getMeProfileFromFirebase().subscribe { user ->
             this.user = user
             firebaseDBHelper.getCityWroutes(prefsHelper.currentCityId).subscribe { wroutes ->
-                viewModel.wroutes?.postValue(wroutes)
+                viewModel.wroutes.postValue(wroutes)
 
                 agendaAdapter.replaceItems(wroutes)
                 agendaAdapter.notifyDataSetChanged()
@@ -87,8 +90,9 @@ class MainFragment: BaseFragment() {
 
         firebaseDBHelper.getMeProfileFromFirebase().subscribe { user ->
             this.user = user
+
             firebaseDBHelper.getCityWroutes(prefsHelper.currentCityId).subscribe { wroutes ->
-                viewModel.wroutes?.postValue(wroutes)
+                viewModel.wroutes.postValue(wroutes)
 
                 wrouteAdapter.replaceItems(wroutes)
                 wrouteAdapter.notifyDataSetChanged()

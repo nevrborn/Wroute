@@ -36,7 +36,7 @@ class AgendaFragment: BaseFragment() {
 
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
 
-        binding = DataBindingUtil.inflate(layoutInflater, R.layout.fragment_agenda, container, true)
+        binding = DataBindingUtil.inflate(layoutInflater, R.layout.fragment_agenda, container, false)
         binding.viewModel = viewModel
         binding.fragment = this
         binding.setLifecycleOwner(this)
@@ -57,7 +57,7 @@ class AgendaFragment: BaseFragment() {
 
         horizontalCalendar.calendarListener = horizontalListener
 
-        return view
+        return binding.root
     }
 
 

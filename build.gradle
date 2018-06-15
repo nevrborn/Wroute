@@ -2,7 +2,7 @@
 
 buildscript {
     ext.gradle_version = '3.1.2'
-    ext.kotlin_version = '1.2.40'
+    ext.kotlin_version = '1.2.41'
     //ext.objectbox_version = '1.4.1'
     repositories {
         google()

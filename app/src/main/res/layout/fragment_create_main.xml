@@ -6,6 +6,7 @@
 
     <data>
         <import type="android.view.View"/>
+        <variable name="fragment" type="com.donkeymonkey.wroute.views.fragments.CreateWrouteMainFragment" />
         <variable name="wroute" type="com.donkeymonkey.wroute.models.Wroute" />
         <variable name="viewModel" type="com.donkeymonkey.wroute.viewmodels.CreateWrouteViewModel" />
     </data>
@@ -72,7 +73,7 @@
                     android:textColorHint="@android:color/white"
                     android:fontFamily="@font/gotham_light"
                     android:backgroundTint="@color/appOffWhite"
-                    android:text="@={viewModel.wroute.name}"
+                    android:text="@={wroute.name}"
                     />
 
             </LinearLayout>
@@ -96,7 +97,7 @@
                     android:textSize="20sp"
                     android:fontFamily="@font/gotham_light"
                     android:gravity="start|center"
-                    android:text="@{viewModel.wroute.distance != null ? @string/common_km(wroute.distance): @string/common_km_placeholder}"
+                    android:text="@{wroute.distance != null ? @string/common_km(wroute.distance): @string/common_km_placeholder}"
                     />
 
                 <TextView
@@ -108,7 +109,7 @@
                     android:textSize="20sp"
                     android:fontFamily="@font/gotham_light"
                     android:gravity="center"
-                    android:text="@{viewModel.wroute.stops.size != 0 ? @string/common_stops(wroute.stops.size): @string/common_stops_placeholder}"
+                    android:text="@{wroute.stops.size != 0 ? @string/common_stops(wroute.stops.size): @string/common_stops_placeholder}"
                     />
 
                 <TextView
@@ -120,7 +121,7 @@
                     android:textSize="20sp"
                     android:fontFamily="@font/gotham_light"
                     android:gravity="end|center"
-                    android:text="@{viewModel.wroute.duration != null ? @string/common_hrs(wroute.duration): @string/common_hrs_placeholder}"
+                    android:text="@{wroute.duration != null ? @string/common_hrs(wroute.duration): @string/common_hrs_placeholder}"
                     />
 
             </LinearLayout>
@@ -156,7 +157,7 @@
                     android:hint="@string/common_enter_text"
                     android:layout_marginBottom="25dp"
                     android:fontFamily="@font/gotham_light"
-                    android:text="@={viewModel.description}"/>
+                    android:text="@={wroute.description}"/>
 
                 <TextView
                     android:layout_width="match_parent"

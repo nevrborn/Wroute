@@ -6,6 +6,7 @@
 
     <data>
         <import type="android.view.View"/>
+        <variable name="fragment" type="com.donkeymonkey.wroute.views.fragments.CreateWrouteStopFragment" />
         <variable name="wroute" type="com.donkeymonkey.wroute.models.Wroute" />
         <variable name="viewModel" type="com.donkeymonkey.wroute.viewmodels.CreateWrouteViewModel" />
     </data>
@@ -60,7 +61,7 @@
                     android:textSize="20sp"
                     android:fontFamily="@font/gotham_light"
                     android:gravity="end|center"
-                    android:text="@{wroute.stops.size != 0 ? @string/common_stops(wroute.stops.size): @string/common_stops_placeholder}"
+                    android:text="@{wroute.duration != null ? @string/common_hrs(wroute.duration): @string/common_hrs_placeholder}"
                     />
 
             </LinearLayout>

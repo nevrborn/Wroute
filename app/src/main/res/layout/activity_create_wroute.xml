@@ -43,7 +43,7 @@
                 android:id="@+id/button_add_stop"
                 android:layout_width="@dimen/create_route_next_button"
                 android:layout_height="@dimen/create_route_next_button"
-                android:background="@mipmap/ic_plus"
+                android:background="@mipmap/ic_add"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:layout_margin="10dp"
