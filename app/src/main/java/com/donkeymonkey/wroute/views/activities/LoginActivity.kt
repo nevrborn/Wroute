@@ -40,8 +40,15 @@ class LoginActivity: BaseActivity() {
         binding.viewModel = viewModel
 
         firebaseAuthHelper.initialiseFirebase(this)
-        prefsHelper.currentCityId = "Amsterdam"
+        prefsHelper.currentCityId = "C1443p2Kdbpm0tLzDQSa"
         firebaseDBHelper.updateRefs(prefsHelper.currentCityId)
+
+        val isUserSignedIn = firebaseAuthHelper.mAuth?.currentUser != null
+
+        if (isUserSignedIn) {
+            prefsHelper.userId = firebaseAuthHelper.mAuth?.currentUser?.uid.let { it } ?: ""
+            navigationHelper.openMainActivity()
+        }
     }
 
     fun nextAction() {

@@ -113,9 +113,6 @@ class CreateWrouteActivity : BaseActivity() {
 
         binding.pager.currentItem = currentPage
         showOrHideButtons(currentPage)
-//        Log.d("Wroute Name", viewModel.wroute.name)
-//        Log.d("Wroute Description", viewModel.wroute.description)
-
     }
 
     fun showOrHideButtons(postition: Int) {
@@ -140,6 +137,9 @@ class CreateWrouteActivity : BaseActivity() {
     }
 
     fun addStop() {
-        StopDialog.newInstance()
+        val stopDialog = StopDialog.newInstance()
+        stopDialog.show(supportFragmentManager, "hello")
     }
+
+
 }

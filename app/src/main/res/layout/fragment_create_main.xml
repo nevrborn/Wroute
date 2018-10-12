@@ -74,7 +74,7 @@
                     android:fontFamily="@font/gotham_light"
                     android:backgroundTint="@color/appOffWhite"
                     android:text="@={wroute.name}"
-                    />
+                    android:inputType="text"/>
 
             </LinearLayout>
 
@@ -157,7 +157,8 @@
                     android:hint="@string/common_enter_text"
                     android:layout_marginBottom="25dp"
                     android:fontFamily="@font/gotham_light"
-                    android:text="@={wroute.description}"/>
+                    android:text="@={wroute.description}"
+                    android:inputType="text"/>
 
                 <TextView
                     android:layout_width="match_parent"

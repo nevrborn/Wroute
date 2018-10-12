@@ -21,8 +21,6 @@ class MainActivity : BaseActivity() {
     lateinit var viewModel: MainViewModel
     lateinit var binding: ActivityMainBinding
 
-    var currentPage: Int = 0
-
     private lateinit var mainPageAdapter: ViewPageAdapter
     private lateinit var citySpinnerDialog: SpinnerDialog
 

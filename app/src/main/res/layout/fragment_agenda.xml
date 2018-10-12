@@ -48,6 +48,7 @@
                     android:layout_marginTop="10dp">
 
                     <TextView
+                        android:id="@+id/agenda_textview_no_trips"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/agenda_no_trips"
@@ -58,12 +59,12 @@
                         android:fontFamily="@font/gotham_bold"/>
 
                     <android.support.v7.widget.RecyclerView
-                        android:id="@+id/main_list_wroutes"
+                        android:id="@+id/main_list_trips"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scrollbars="vertical"
                         app:layoutManager="android.support.v7.widget.LinearLayoutManager"
-                        tools:listitem="@layout/list_item_wroute"
+                        tools:listitem="@layout/list_item_wroute_agenda_large"
                         android:padding="10dp">
 
                     </android.support.v7.widget.RecyclerView>

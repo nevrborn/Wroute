@@ -10,8 +10,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.donkeymonkey.wroute.R
 import com.donkeymonkey.wroute.databinding.FragmentAgendaBinding
-import com.donkeymonkey.wroute.databinding.FragmentMainBinding
+import com.donkeymonkey.wroute.models.Trip
+import com.donkeymonkey.wroute.models.Wroute
 import com.donkeymonkey.wroute.viewmodels.MainViewModel
+import com.donkeymonkey.wroute.views.adapters.GenericRecyclerViewAdapter
 import devs.mulham.horizontalcalendar.HorizontalCalendar
 import devs.mulham.horizontalcalendar.utils.HorizontalCalendarListener
 import java.util.*
@@ -22,13 +24,7 @@ class AgendaFragment: BaseFragment() {
     lateinit var binding: FragmentAgendaBinding
 
     fun newInstance(): Fragment {
-
         return AgendaFragment()
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -36,7 +32,9 @@ class AgendaFragment: BaseFragment() {
 
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
 
-        binding = DataBindingUtil.inflate(layoutInflater, R.layout.fragment_agenda, container, false)
+        setUpHelpers(this.context!!)
+
+        binding = DataBindingUtil.inflate(layoutInflater, R.layout.fragment_agenda, container, true)
         binding.viewModel = viewModel
         binding.fragment = this
         binding.setLifecycleOwner(this)
@@ -53,16 +51,35 @@ class AgendaFragment: BaseFragment() {
                 .datesNumberOnScreen(5)
                 .build()
 
+
         var horizontalListener = HorizontalListener()
 
         horizontalCalendar.calendarListener = horizontalListener
 
-        return binding.root
+        setupTripsTable()
+
+        return view
     }
 
+    fun setupTripsTable() {
+        val tripsAdapter = GenericRecyclerViewAdapter(R.layout.list_item_wroute_agenda_large, object: GenericRecyclerViewAdapter.InteractionListener<Trip> {
+            override fun onItemSelected(item: Trip?) {
 
+            }
+        })
+
+        binding.mainListTrips.adapter = tripsAdapter
+
+        firebaseDBHelper.getCityTrips(prefsHelper.currentCityId).subscribe { trips ->
+            viewModel.trips.postValue(trips)
+
+            tripsAdapter.replaceItems(trips)
+            tripsAdapter.notifyDataSetChanged()
+        }
+    }
 
 }
+
 
 class HorizontalListener: HorizontalCalendarListener() {
     override fun onDateSelected(date: Calendar?, position: Int) {

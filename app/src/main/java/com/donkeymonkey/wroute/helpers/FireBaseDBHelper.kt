@@ -119,19 +119,19 @@ class FireBaseDBHelper(private val context: Context): FirebaseBaseHelper() {
 
     fun getCityWroutes(cityId: String): Observable<List<Wroute>> {
 
-        val query = wrouteCollectionReference.whereEqualTo("uid", cityId)
+        val query = wrouteCollectionReference.whereEqualTo("cityId", cityId)
         return query.getObservable()
     }
 
     fun getCityTrips(cityId: String): Observable<List<Trip>> {
 
-        val query = tripCollectionReference.whereEqualTo("uid", cityId)
+        val query = tripCollectionReference.whereEqualTo("cityId", cityId)
         return query.getObservable()
     }
 
     fun getCityCampaigns(cityId: String): Observable<List<Campaign>> {
 
-        val query = tripCollectionReference.whereEqualTo("uid", cityId)
+        val query = tripCollectionReference.whereEqualTo("cityId", cityId)
         return query.getObservable()
     }
 

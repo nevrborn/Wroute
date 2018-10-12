@@ -56,11 +56,13 @@ class MainFragment: BaseFragment() {
 //        firebaseDBHelper.storeDocument(Defines.FirebaseDB.Wroutes, viewModel.wroute2).subscribe()
 //        firebaseDBHelper.storeDocument(Defines.FirebaseDB.Cities, viewModel.city1).subscribe()
 //        firebaseDBHelper.storeDocument(Defines.FirebaseDB.Cities, viewModel.city2).subscribe()
-//        firebaseDBHelper.storeDocument(Defines.FirebaseDB.Trips, viewModel.trip1).subscribe()
+//        firebaseDBHelper.storeDocument(Defines.FirebaseDB.Trips, viewModel.trip1 as Any).subscribe()
+//        firebaseDBHelper.storeDocument(Defines.FirebaseDB.Trips, viewModel.trip2 as Any).subscribe()
+//        firebaseDBHelper.storeDocument(Defines.FirebaseDB.Trips, viewModel.trip3 as Any).subscribe()
     }
 
     fun setupAgendaCarousel() {
-        val agendaAdapter = GenericRecyclerViewAdapter<Wroute>(R.layout.list_item_wroute_agenda, object: GenericRecyclerViewAdapter.InteractionListener<Wroute> {
+        val agendaAdapter = GenericRecyclerViewAdapter(R.layout.list_item_wroute_agenda, object: GenericRecyclerViewAdapter.InteractionListener<Wroute> {
             override fun onItemSelected(item: Wroute?) {
 
             }
@@ -80,7 +82,7 @@ class MainFragment: BaseFragment() {
     }
 
     fun setupRoutesTable() {
-        val wrouteAdapter = GenericRecyclerViewAdapter<Wroute>(R.layout.list_item_wroute, object: GenericRecyclerViewAdapter.InteractionListener<Wroute> {
+        val wrouteAdapter = GenericRecyclerViewAdapter(R.layout.list_item_wroute, object: GenericRecyclerViewAdapter.InteractionListener<Wroute> {
             override fun onItemSelected(item: Wroute?) {
 
             }

@@ -10,7 +10,8 @@ import io.reactivex.internal.operators.observable.ObservableAny
 
 class CreateWrouteViewModel: BaseViewModel() {
 
-    var wroute = ObservableAny<Wroute>()
+    var wroute = MutableLiveData<Wroute>()
+
 
     init {
         wroute

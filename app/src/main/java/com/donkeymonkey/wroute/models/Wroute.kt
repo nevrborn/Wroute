@@ -18,6 +18,8 @@ class Wroute : Serializable, BaseModel {
     var createDateString: String? = null
         get() = getDate(createDate.let { it } ?: 0)
 
+    var cityId: String? = null
+
     var name: String? = null
     set(value) {
         field = value
@@ -50,10 +52,11 @@ class Wroute : Serializable, BaseModel {
         this.description = description
     }
 
-    constructor(uid: String?, userId: String?, name: String?, description: String?, type: Defines.WrouteType?, distance: Int?, duration: Int?) : super() {
+    constructor(uid: String?, userId: String?, cityId: String, name: String?, description: String?, type: Defines.WrouteType?, distance: Int?, duration: Int?) : super() {
         this.uid = uid
         this.creatorId = userId
         this.createDate = Date().time
+        this.cityId = cityId
         this.name = name
         this.description = description
         //this.type = type
